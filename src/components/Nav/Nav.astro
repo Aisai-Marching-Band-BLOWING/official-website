@@ -1,0 +1,42 @@
+---
+import NavLink from "./NavLink.astro";
+---
+
+<nav>
+  <a href="index.html" class="logo">
+    <img src="img/apple-touch-icon-180x180.png" />
+
+    <div class="logo-text">
+      <span class="logo-aisaimb">Aisai Marching Band</span>
+      <span class="logo-blowing">BLOWING</span>
+    </div>
+  </a>
+
+  <button
+    type="button"
+    title="メニューを開く"
+    class="menu-btn"
+    id="menuButton"
+    aria-controls="menuContent"
+    aria-expanded="false"
+  >
+    <span class="menu-btn-open">MENU</span>
+    <span class="menu-btn-close">CLOSE</span>
+    <ul>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </button>
+
+  <div class="menu-content" id="menuContent">
+    <ul class="menu-content-list">
+      <li><NavLink href="/">ホーム</NavLink></li>
+      <li><NavLink href="/news/">お知らせ</NavLink></li>
+      <li><NavLink href="/about/">概要</NavLink></li>
+      <li><NavLink href="/join/">メンバー募集</NavLink></li>
+      <il><NavLink href="/contact/">お問い合わせ</NavLink></il>
+      <li><NavLink href="/privacy/">当サイトについて</NavLink></li>
+    </ul>
+  </div>
+</nav>

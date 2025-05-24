@@ -1,0 +1,30 @@
+---
+const { title, description } = Astro.props;
+---
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>{title}</title>
+<meta name="description" content={description} />
+<meta name="theme-color" content="9f166a" />
+<meta name="generator" content={Astro.generator} />
+
+<!-- OGP -->
+<meta property="og:title" content={title} />
+<meta property="og:type" content=" website" />
+<meta property="og:url" content="" />
+<meta property="og:image" content="" />
+<meta property="og:description" content={description} />
+<meta name="twitter:card" content="summary" />
+
+<!-- icon -->
+<link rel="icon" href="img/icon-192x192.png" />
+<link rel="apple-touch-icon" href="img/apple-touch-icon-180x180.png" />
+
+<!--Google Fonts-->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap"
+  rel="stylesheet"
+/>

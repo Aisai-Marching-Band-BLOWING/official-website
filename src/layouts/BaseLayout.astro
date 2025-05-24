@@ -1,0 +1,26 @@
+---
+import Footer from "@/components/Footer/Footer.astro";
+import Header from "@/components/Header/Header.astro";
+import Hero from "@/components/Hero/Hero.astro";
+import Meta from "@/components/Meta/Meta.astro";
+import Nav from "@/components/Nav/Nav.astro";
+
+const { pageTitle, description } = Astro.props;
+const siteTitle = "Aisai Marching Band BLOWING";
+const isTopPage = Astro.url.pathname === "/";
+---
+
+<!doctype html>
+<html prefix="og: http://ogp.me/ns#" lang="ja">
+  <head>
+    <Meta title={(isTopPage ? "" : `${pageTitle} - `) + siteTitle} description={description} />
+  </head>
+  <body>
+    <Nav />
+    <main>
+      {isTopPage ? <Hero /> : <Header pageTitle={pageTitle} />}
+      <slot />
+      <Footer />
+    </main>
+  </body>
+</html>

@@ -1,0 +1,8 @@
+---
+const { href } = Astro.props;
+const pathname = Astro.url.pathname;
+const subpath = pathname.match(/[^\/]+/g);
+const isCurrent = href === pathname || href === `/${subpath?.[0]}`;
+---
+
+<a href={href} aria-current={isCurrent ? "page" : "false"}><slot /></a>
