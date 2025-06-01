@@ -1,8 +1,8 @@
 ---
-
+const { ...props } = Astro.props;
 ---
 
-<footer>
+<footer {...props}>
   <section class="share-icon">
     <a
       class="notice"

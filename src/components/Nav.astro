@@ -1,8 +1,9 @@
 ---
 import NavLink from "./NavLink.astro";
+const { ...props } = Astro.props;
 ---
 
-<nav>
+<nav {...props}>
   <a href="index.html" class="logo">
     <img src="img/apple-touch-icon-180x180.png" />
 
@@ -40,3 +41,12 @@ import NavLink from "./NavLink.astro";
     </ul>
   </div>
 </nav>
+
+<style>
+  @media (width < 960px) {
+    nav {
+      overflow: auto;
+      border-left: 1px solid rgb(var(--gray3));
+    }
+  }
+</style>

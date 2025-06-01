@@ -1,0 +1,98 @@
+---
+const { ...props } = Astro.props;
+---
+
+<header {...props}>
+  <h1 class="slogan">地域に愛される<br />マーチングバンドを<br class="only-s" />目指して</h1>
+  <span class="scroll-arrow">SCROLL</span>
+</header>
+
+<style>
+  header {
+    background: linear-gradient(rgba(var(--black), 0.4), rgba(var(--black), 0.4)),
+      url("/img/hero.webp");
+    background-size: cover;
+    background-position: center center;
+    color: rgb(var(--white));
+
+    @media (width < 640px) {
+      padding: 5rem 1.5rem;
+    }
+
+    @media (640px <= width) {
+      padding: 6rem 10%;
+      text-align: center;
+      aspect-ratio: 16 / 9;
+    }
+
+    position: relative;
+    display: grid;
+    place-content: center;
+  }
+
+  .slogan {
+    @media (width < 640px) {
+      font-size: 9.3vw;
+    }
+
+    @media (640px <= width < 960px) {
+      font-size: 6.1vw;
+    }
+
+    @media (960px <= width) {
+      font-size: 4.61vw;
+    }
+  }
+
+  .scroll-arrow {
+    display: inline-block;
+    position: absolute;
+    bottom: 0;
+    padding: 1rem 1rem 7rem;
+    font-size: 0.7rem;
+    line-height: 1;
+    letter-spacing: 0.2rem;
+    writing-mode: vertical-lr;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 1px;
+      height: 7rem;
+      background: rgb(var(--white));
+      animation: sdl 1.5s cubic-bezier(1, 0, 0, 1) infinite;
+    }
+
+    @media (width < 640px) {
+      right: 1.5rem;
+    }
+
+    @media (640px <= width) {
+      right: 10%;
+    }
+  }
+
+  @keyframes sdl {
+    0% {
+      transform: scale(1, 0);
+      transform-origin: 0 0;
+    }
+
+    50% {
+      transform: scale(1, 1);
+      transform-origin: 0 0;
+    }
+
+    50.1% {
+      transform: scale(1, 1);
+      transform-origin: 0 100%;
+    }
+
+    100% {
+      transform: scale(1, 0);
+      transform-origin: 0 100%;
+    }
+  }
+</style>

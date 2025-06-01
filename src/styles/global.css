@@ -1,0 +1,177 @@
+@charset "utf-8";
+
+:root {
+  --brand-color: 159, 22, 106;
+  --light-brand-color: 248, 201, 230;
+  --sub-color: 62, 120, 178;
+  --red: 224, 54, 22;
+  --black: 51, 51, 51;
+  --gray1: 184, 184, 184;
+  --gray2: 235, 235, 235;
+  --gray3: 245, 245, 245;
+  --white: 255, 255, 255;
+
+  --shippo-radius: 40px;
+  --shippo-width: 0.6px;
+  --shippo-bg-color: var(--brand-color);
+  --shippo-circle-color: rgba(var(--white), 0.5);
+  --shippo-pattern-img: radial-gradient(
+      circle at top left,
+      rgba(var(--shippo-bg-color), 0) calc(var(--shippo-radius) - var(--shippo-width)),
+      var(--shippo-circle-color) var(--shippo-radius),
+      rgba(var(--shippo-bg-color), 0) calc(var(--shippo-radius) + var(--shippo-width))
+    ),
+    radial-gradient(
+      circle at top right,
+      rgba(var(--shippo-bg-color), 0) calc(var(--shippo-radius) - var(--shippo-width)),
+      var(--shippo-circle-color) var(--shippo-radius),
+      rgba(var(--shippo-bg-color), 0) calc(var(--shippo-radius) + var(--shippo-width))
+    ),
+    radial-gradient(
+      circle at bottom left,
+      rgba(var(--shippo-bg-color), 0) calc(var(--shippo-radius) - var(--shippo-width)),
+      var(--shippo-circle-color) var(--shippo-radius),
+      rgba(var(--shippo-bg-color), 0) calc(var(--shippo-radius) + var(--shippo-width))
+    ),
+    radial-gradient(
+      circle at bottom right,
+      rgba(var(--shippo-bg-color), 0) calc(var(--shippo-radius) - var(--shippo-width)),
+      var(--shippo-circle-color) var(--shippo-radius),
+      rgba(var(--shippo-bg-color), 0) calc(var(--shippo-radius) + var(--shippo-width))
+    ),
+    radial-gradient(
+      circle at 50% 150%,
+      rgba(var(--shippo-bg-color), 0) calc(var(--shippo-radius) - var(--shippo-width)),
+      var(--shippo-circle-color) var(--shippo-radius),
+      rgba(var(--shippo-bg-color), 0) calc(var(--shippo-radius) + var(--shippo-width))
+    ),
+    radial-gradient(
+      circle at 50% -50%,
+      rgba(var(--shippo-bg-color), 0) calc(var(--shippo-radius) - var(--shippo-width)),
+      var(--shippo-circle-color) var(--shippo-radius),
+      rgba(var(--shippo-bg-color), 0) calc(var(--shippo-radius) + var(--shippo-width))
+    ),
+    radial-gradient(
+      circle at 150% 50%,
+      rgba(var(--shippo-bg-color), 0) calc(var(--shippo-radius) - var(--shippo-width)),
+      var(--shippo-circle-color) var(--shippo-radius),
+      rgba(var(--shippo-bg-color), 0) calc(var(--shippo-radius) + var(--shippo-width))
+    ),
+    radial-gradient(
+      circle at -50% 50%,
+      rgba(var(--shippo-bg-color), 0) calc(var(--shippo-radius) - var(--shippo-width)),
+      var(--shippo-circle-color) var(--shippo-radius),
+      rgba(var(--shippo-bg-color), 0) calc(var(--shippo-radius) + var(--shippo-width))
+    );
+  --shippo-pattern-size: calc(var(--shippo-radius) * 1.732) var(--shippo-radius);
+
+  @media (width < 640px) {
+    --ratio: 1.414;
+  }
+
+  @media (640px <= width) {
+    --ratio: 1.618;
+  }
+}
+
+/*全体*/
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  color: rgb(var(--black));
+  background-color: rgb(var(--white));
+  font-family: "Noto Sans JP", sans-serif;
+}
+
+h1 {
+  font-size: calc(var(--ratio) * var(--ratio) * var(--ratio) * 1rem);
+}
+
+h2 {
+  font-size: calc(var(--ratio) * var(--ratio) * 1rem);
+}
+
+h3 {
+  font-size: calc(var(--ratio) * 1rem);
+}
+
+h3:not(:first-child),
+h4:not(:first-child) {
+  margin-top: calc(var(--ratio) * 1rem);
+}
+
+h4 {
+  font-size: 1rem;
+}
+
+a {
+  color: rgb(var(--black));
+  text-decoration: none;
+}
+
+p {
+  line-height: 1.6;
+  margin-top: 1rem;
+}
+
+img {
+  width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  background: none;
+  border: none;
+  border-radius: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  font: inherit;
+  color: inherit;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  border: 1px solid rgb(var(--gray1));
+  padding: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+textarea {
+  resize: none;
+  height: 13rem;
+  line-height: 1.6;
+}
+
+button {
+  cursor: pointer;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+th,
+td {
+  border: 1px solid rgb(var(--gray1));
+}
+
+@media (width < 640px) {
+  .only-l {
+    display: none;
+  }
+}
+
+@media (640px <= width) {
+  .only-s {
+    display: none;
+  }
+}

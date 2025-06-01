@@ -1,9 +1,10 @@
 ---
-import Footer from "@/components/Footer/Footer.astro";
-import Header from "@/components/Header/Header.astro";
-import Hero from "@/components/Hero/Hero.astro";
-import Meta from "@/components/Meta/Meta.astro";
-import Nav from "@/components/Nav/Nav.astro";
+import Footer from "@/components/Footer.astro";
+import Header from "@/components/Header.astro";
+import Hero from "@/components/Hero.astro";
+import Meta from "@/components/Meta.astro";
+import Nav from "@/components/Nav.astro";
+import "@/styles/global.css";
 
 const { pageTitle, description } = Astro.props;
 const siteTitle = "Aisai Marching Band BLOWING";
@@ -16,11 +17,55 @@ const isTopPage = Astro.url.pathname === "/";
     <Meta title={(isTopPage ? "" : `${pageTitle} - `) + siteTitle} description={description} />
   </head>
   <body>
-    <Nav />
-    <main>
-      {isTopPage ? <Hero /> : <Header pageTitle={pageTitle} />}
+    <Nav class="nav" />
+    <main class="main">
+      {isTopPage ? <Hero class="header" /> : <Header pageTitle={pageTitle} class="header" />}
       <slot />
-      <Footer />
+      <Footer class="footer" />
     </main>
   </body>
 </html>
+
+<style>
+  .main {
+    margin-right: var(--nav-width);
+    display: flex;
+    flex-direction: column;
+    min-height: 100dvh;
+  }
+
+  .footer {
+    margin-top: auto;
+  }
+
+  @media (width < 960px) {
+    :root {
+      --nav-hight: 60px;
+    }
+
+    .nav {
+      height: var(--nav-hight);
+      width: 100%;
+      position: fixed;
+      top: 0;
+      z-index: 2;
+    }
+
+    .header {
+      margin-top: var(--nav-hight);
+    }
+  }
+
+  @media (960px <= width) {
+    :root {
+      --nav-width: 240px;
+    }
+
+    .nav {
+      height: 100vh;
+      width: var(--nav-width);
+      position: fixed;
+      right: 0;
+    }
+  }
+</style>
