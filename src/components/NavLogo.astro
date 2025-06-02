@@ -1,0 +1,65 @@
+---
+import Logo from "@/assets/apple-touch-icon-180x180.png";
+import { Image } from "astro:assets";
+---
+
+<a href="index.html" class="logo">
+  <Image src={Logo} alt="" class="logo-img" />
+
+  <div class="logo-text">
+    <span class="logo-aisaimb">Aisai Marching Band</span>
+    <span class="logo-blowing">BLOWING</span>
+  </div>
+</a>
+
+<style>
+  @media (width < 960px) {
+    .logo {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-img {
+      width: 45px;
+      height: 45px;
+    }
+
+    .logo-text {
+      color: rgb(var(--black));
+      font-size: 13px;
+    }
+  }
+
+  @media (960px <= width) {
+    .logo {
+      display: grid;
+      padding: 40px 20px;
+      border-bottom: 1px solid rgb(var(--gray3));
+      position: sticky;
+      top: 0;
+      background-color: rgb(var(--white));
+    }
+
+    .logo-img {
+      height: 80px;
+      object-fit: contain;
+    }
+
+    .logo-text {
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .logo-aisaimb {
+      font-size: 16px;
+      line-height: 16px;
+    }
+
+    .logo-blowing {
+      font-size: 36px;
+      line-height: 36px;
+    }
+  }
+</style>

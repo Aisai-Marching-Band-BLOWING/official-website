@@ -1,0 +1,139 @@
+---
+import NavLink from "./NavLink.astro";
+---
+
+<button
+  type="button"
+  title="メニューを開く"
+  class="hamburger"
+  id="hamburger"
+  aria-controls="menu"
+  aria-expanded="false"
+>
+  <span class="hamburger-status"></span>
+
+  <div class="hamburger-lines">
+    <span class="line"></span>
+    <span class="line"></span>
+    <span class="line"></span>
+  </div>
+</button>
+
+<div class="menu" id="menu">
+  <ul class="menu-list">
+    <li class="menu-list-item"><NavLink href="/">ホーム</NavLink></li>
+    <li class="menu-list-item"><NavLink href="/news/">お知らせ</NavLink></li>
+    <li class="menu-list-item"><NavLink href="/about/">概要</NavLink></li>
+    <li class="menu-list-item"><NavLink href="/join/">メンバー募集</NavLink></li>
+    <il class="menu-list-item"><NavLink href="/contact/">お問い合わせ</NavLink></il>
+    <li class="menu-list-item"><NavLink href="/privacy/">当サイトについて</NavLink></li>
+  </ul>
+</div>
+
+<script>
+  import "@/scripts/menu.js";
+</script>
+
+<style>
+  .menu-list-item {
+    list-style: none;
+  }
+
+  @media (width < 960px) {
+    .hamburger {
+      display: grid;
+      place-content: center;
+      place-items: center;
+      height: var(--nav-height);
+      width: var(--nav-height);
+      transition: all 0.4s;
+      background-color: rgb(var(--brand-color));
+      color: rgb(var(--white));
+
+      &:where(.nav-expanded &) {
+        background-color: rgb(var(--white));
+        color: rgb(var(--brand-color));
+      }
+    }
+
+    .hamburger-status {
+      font-size: 10px;
+
+      &::before {
+        content: "MENU";
+      }
+      &:where(.nav-expanded &)::before {
+        content: "CLOSE";
+      }
+    }
+
+    .line {
+      display: block;
+      height: 2px;
+      width: 30px;
+      margin: 5px 0;
+      transition: all 0.4s;
+      background-color: rgb(var(--white));
+
+      &:where(.nav-expanded &) {
+        background-color: rgb(var(--brand-color));
+
+        &:nth-child(1) {
+          transform: translateY(7px) rotate(45deg);
+        }
+
+        &:nth-child(2) {
+          opacity: 0;
+        }
+
+        &:nth-child(3) {
+          transform: translateY(-7px) rotate(-45deg);
+        }
+      }
+    }
+
+    .menu {
+      height: 100%;
+      position: fixed;
+      top: var(--nav-height);
+      left: 100%;
+      transition: all 0.5s;
+      background-color: rgb(var(--shippo-bg-color));
+      background-image: var(--shippo-pattern-img);
+      background-size: var(--shippo-pattern-size);
+      overflow: auto;
+
+      @media (width < 640px) {
+        width: 80%;
+
+        &:where(.nav-expanded &) {
+          left: 20%;
+        }
+      }
+
+      @media (640px <= width) {
+        width: 50%;
+
+        &:where(.nav-expanded &) {
+          left: 50%;
+        }
+      }
+    }
+
+    .menu-list {
+      margin: 1.5rem;
+      display: grid;
+      gap: 1rem;
+    }
+  }
+
+  @media (960px <= width) {
+    .hamburger {
+      display: none;
+    }
+
+    .menu-list {
+      margin-block: 40px;
+    }
+  }
+</style>
