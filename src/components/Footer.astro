@@ -1,31 +1,37 @@
 ---
+import FooterSocial from "./FooterSocial.astro";
 const { ...props } = Astro.props;
 ---
 
 <footer {...props}>
-  <section class="share-icon">
-    <a
-      class="notice"
-      href="https://www.facebook.com/aisaimb/"
-      target="_blank"
-      rel="noopener noreferrer"><i class="fab fa-facebook fa-2x"></i></a
-    >
-    <a
-      class="notice"
-      href="https://www.instagram.com/aisaimb/"
-      target="_blank"
-      rel="noopener noreferrer"><i class="fab fa-instagram fa-2x"></i></a
-    >
-    <a class="notice" href="https://twitter.com/aisai_mb" target="_blank" rel="noopener noreferrer"
-      ><i class="fab fa-twitter fa-2x"></i></a
-    >
-    <a
-      class="notice"
-      href="https://www.youtube.com/channel/UCakCYkwssuwvgCFYvuD-8MQ"
-      target="_blank"
-      rel="noopener noreferrer"><i class="fab fa-youtube fa-2x"></i></a
-    >
+  <section class="social">
+    <FooterSocial platform="Facebook" />
+    <FooterSocial platform="Instagram" />
+    <FooterSocial platform="X" />
+    <FooterSocial platform="YouTube" />
   </section>
 
-  <address>&copy; 2021 Aisai Marching Band BLOWING</address>
+  <address>&copy; 2025 Aisai Marching Band BLOWING</address>
 </footer>
+
+<style>
+  footer {
+    color: rgb(var(--white));
+    --shippo-bg-color: var(--black);
+    background-color: rgb(var(--shippo-bg-color));
+    background-image: var(--shippo-pattern-img);
+    background-size: var(--shippo-pattern-size);
+  }
+
+  .social {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  address {
+    font-style: normal;
+    font-size: 0.7rem;
+    text-align: center;
+  }
+</style>
