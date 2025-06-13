@@ -1,11 +1,14 @@
+---
+import aboutImg from "@/assets/about.webp";
+import { Image } from "astro:assets";
+import SectionTitle from "./SectionTitle.astro";
+---
+
 <section id="about">
-  <div class="ttl">
-    <span>ABOUT</span>
-    <h2>BLOWINGとは</h2>
-  </div>
+  <SectionTitle title="BLOWINGについて" subtitle="About BLOWING" />
 
   <div class="about-img">
-    <img src="img/about.webp" />
+    <Image src={aboutImg} alt="BLOWINGの活動風景" class="about-img" />
   </div>
 
   <div class="read">
@@ -17,10 +20,3 @@
     <a href="about.html" class="link-btn">詳しく見る</a>
   </div>
 </section>
-
-<style>
-  .ttl span {
-    margin-left: 1rem;
-    font-weight: bold;
-  }
-</style>
