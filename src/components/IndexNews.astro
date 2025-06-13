@@ -1,0 +1,110 @@
+<section id="index-news">
+  <div class="ttl">
+    <span>NEWS</span>
+    <h2>お知らせ</h2>
+  </div>
+
+  <div class="post-area">
+    <article class="post">
+      <a href="news.html#20250522" class="post-link">
+        <p class="post-link-date">2025/05/22</p>
+        <h3>【Jr.】2025年度の団員募集チラシを更新しました</h3>
+      </a>
+    </article>
+    <article class="post">
+      <a href="news.html#20250407" class="post-link">
+        <p class="post-link-date">2025/04/07</p>
+        <h3>第4回スプリングコンサートを開催します</h3>
+      </a>
+    </article>
+    <article class="post">
+      <a href="news2024.html#20250228" class="post-link">
+        <p class="post-link-date">2025/02/28</p>
+        <h3>2025年度の団員募集チラシを公開しました</h3>
+      </a>
+    </article>
+    <article class="post">
+      <a href="news2024.html#20250221" class="post-link">
+        <p class="post-link-date">2025/02/21</p>
+        <h3>【Jr.】第1回定期演奏会を開催します</h3>
+      </a>
+    </article>
+  </div>
+
+  <a href="news.html" class="link-btn">お知らせ一覧はこちら</a>
+</section>
+
+<style>
+  .ttl span {
+    margin-left: 1rem;
+    font-weight: bold;
+  }
+
+  #index-news {
+    --shippo-bg-color: var(--gray3);
+    background-color: rgb(var(--shippo-bg-color));
+    background-image: var(--shippo-pattern-img);
+    background-size: var(--shippo-pattern-size);
+  }
+
+  #news {
+    background-color: rgb(var(--gray3));
+  }
+
+  #news aside {
+    background-color: rgb(var(--white));
+    display: flex;
+  }
+
+  #news aside .link-btn {
+    margin: 0;
+  }
+
+  #news .read {
+    background-color: rgb(var(--white));
+  }
+
+  @media (width < 640px) {
+    #news aside {
+      display: flex;
+      gap: 1rem;
+      overflow: auto;
+      padding: 1rem;
+    }
+
+    #news aside .link-btn {
+      white-space: nowrap;
+    }
+
+    #news .read {
+      padding: 1rem;
+      margin-top: 1.5rem;
+    }
+  }
+
+  @media (width > 641px) {
+    #news {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 1.5rem;
+    }
+
+    #news aside {
+      padding: 1.5rem;
+      position: sticky;
+      top: 1.5rem;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    #news aside .link-btn {
+      width: 5rem;
+    }
+
+    #news .read {
+      padding: 1.5em;
+    }
+  }
+</style>

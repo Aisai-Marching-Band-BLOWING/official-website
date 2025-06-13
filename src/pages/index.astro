@@ -1,12 +1,25 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import IndexContact from "@/components/IndexContact.astro";
+import IndexNews from "@/components/IndexNews.astro";
+import IndexAbout from "@/components/IndexAbout.astro";
+import IndexSchedule from "@/components/IndexSchedule.astro";
+import IndexJoinUs from "@/components/IndexJoinUs.astro";
 import IndexLatestVideo from "@/components/IndexLatestVideo.astro";
-import IndeJoinUs from "@/components/IndexJoinUs.astro";
+import IndexContact from "@/components/IndexContact.astro";
 ---
 
 <BaseLayout description="">
-  <IndeJoinUs />
+  <IndexNews />
+  <IndexAbout />
+  <IndexSchedule />
+  <IndexJoinUs />
   <IndexLatestVideo />
   <IndexContact />
 </BaseLayout>
+
+<style>
+  .ttl span {
+    margin-left: 1rem;
+    font-weight: bold;
+  }
+</style>
