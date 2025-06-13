@@ -64,6 +64,62 @@
     background-color: rgb(var(--white));
   }
 
+  .post-area {
+    margin-top: 1rem;
+    display: grid;
+    align-items: start;
+    grid-template-columns: repeat(auto-fit, minmax(17em, 1fr));
+    gap: 1rem;
+    max-height: 50vh;
+    overflow: auto;
+  }
+
+  .post {
+    position: relative;
+  }
+
+  .post-link {
+    display: block;
+    background-color: rgb(var(--white));
+    padding: 1rem 4rem 1rem 1rem;
+  }
+
+  .post-link::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 30px 30px 0 0;
+    border-color: rgb(var(--brand-color)) rgba(var(--brand-color), 0)
+      rgba(var(--brand-color), 0) rgba(var(--brand-color), 0);
+    z-index: 0;
+  }
+
+  .post-link::after {
+    content: "";
+    display: block;
+    width: 11px;
+    height: 11px;
+    border-top: 2px solid rgb(var(--gray1));
+    border-right: 2px solid rgb(var(--gray1));
+    position: absolute;
+    top: 50%;
+    right: 2rem;
+    transform: translateY(-50%) rotate(45deg);
+  }
+
+  .post-link-date {
+    font-size: 0.7rem;
+    margin: 0 1rem;
+  }
+
+  .post-link h3 {
+    margin: 0;
+  }
+
   @media (width < 640px) {
     #news aside {
       display: flex;
