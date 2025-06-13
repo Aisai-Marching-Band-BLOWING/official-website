@@ -15,4 +15,30 @@
   </div>
 </section>
 
-<style></style>
+<style>
+  .ttl span {
+    margin-left: 1rem;
+    font-weight: bold;
+  }
+  #video {
+    --shippo-bg-color: var(--gray3);
+    background-color: rgb(var(--shippo-bg-color));
+    background-image: var(--shippo-pattern-img);
+    background-size: var(--shippo-pattern-size);
+  }
+  .youtube {
+    margin-top: calc(var(--ratio) * 1rem);
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-top: 56.25%;
+  }
+
+  .youtube iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+</style>
