@@ -2,7 +2,7 @@
 import SectionTitle from "./SectionTitle.astro";
 ---
 
-<section id="video">
+<section class="root">
   <SectionTitle title="最新の動画" subtitle="LATEST VIDEO" />
 
   <div class="youtube">
@@ -17,16 +17,13 @@ import SectionTitle from "./SectionTitle.astro";
 </section>
 
 <style>
-  .ttl span {
-    margin-left: 1rem;
-    font-weight: bold;
-  }
-  #video {
+  .root {
     --shippo-bg-color: var(--gray3);
     background-color: rgb(var(--shippo-bg-color));
     background-image: var(--shippo-pattern-img);
     background-size: var(--shippo-pattern-size);
   }
+
   .youtube {
     margin-top: calc(var(--ratio) * 1rem);
     position: relative;

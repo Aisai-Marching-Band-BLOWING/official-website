@@ -7,21 +7,11 @@ import SectionTitle from "./SectionTitle.astro";
 ---
 
 <section id="contact">
-  <div class="contact-header">
-    <span class="contact-subtitle">CONTACT US</span>
-    <h2>お問い合わせ</h2>
-    <p class="contact-description">
-      各種SNSやメールでお気軽にお問い合わせください。
-    </p>
-  </div>
+  <SectionTitle title="お問い合わせ" subtitle="CONTACT US" />
 
-  <!-- 
-    お問い合わせフォームボタン。いったん保留。
+  <p>各種SNSやメールでお気軽にお問い合わせください。</p>
+  <a href="contact.html" class="link-btn">お問い合わせフォームはこちら</a>
 
-    <a href="contact.html" class="link-btn">お問い合わせフォームはこちら</a>
-    <NavLink href="/join">お問い合わせフォームはこちら</NavLink>
-    
-    -->
   <div class="contact-container">
     <div class="contact-grid">
       <div class="contact-card featured-card">
@@ -108,68 +98,14 @@ import SectionTitle from "./SectionTitle.astro";
 </section>
 
 <style>
-  #contact {
-    background: linear-gradient(
-      135deg,
-      rgba(var(--white), 0.1) 0%,
-      rgba(var(--white), 1) 100%
-    );
-    position: relative;
-  }
-
-  #contact::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+  .root {
+    --shippo-bg-color: var(--white);
+    background-color: rgb(var(--shippo-bg-color));
     background-image: var(--shippo-pattern-img);
     background-size: var(--shippo-pattern-size);
-    background-color: rgba(var(--brand-color), 0.02);
-    opacity: 0.5;
-    pointer-events: none;
-  }
-
-  .contact-header {
-    text-align: center;
-    margin-bottom: 3rem;
-    position: relative;
-    z-index: 1;
-  }
-
-  .contact-subtitle {
-    display: inline-block;
-    font-size: 0.875rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    color: rgb(var(--brand-color));
-    background: linear-gradient(
-      135deg,
-      rgba(var(--brand-color), 0.1),
-      rgba(var(--light-brand-color), 0.2)
-    );
-    padding: 0.5rem 1.5rem;
-    border-radius: 50px;
-    margin-bottom: 1rem;
-    text-transform: uppercase;
-  }
-
-  .contact-header h2 {
-    color: rgb(var(--black));
-    margin-bottom: 1rem;
-    font-weight: 700;
-  }
-
-  .contact-description {
-    color: rgb(var(--black));
-    opacity: 0.8;
-    max-width: 600px;
-    margin: 0 auto;
-    font-size: 1.1rem;
-    line-height: 1.7;
   }
   .contact-container {
+    margin-top: 3rem;
     position: relative;
     z-index: 1;
   }

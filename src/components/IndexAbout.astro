@@ -1,19 +1,17 @@
 ---
-import aboutImg from "@/assets/about.webp";
+import photo from "@/assets/about.webp";
 import { Image } from "astro:assets";
 import SectionTitle from "./SectionTitle.astro";
 ---
 
-<section id="about">
-  <div class="ttl">
-    <SectionTitle title="BLOWINGとは" subtitle="ABOUT" />
+<section class="root">
+  <SectionTitle title="BLOWINGとは" subtitle="ABOUT" class="title" />
+
+  <div class="photo">
+    <Image src={photo} alt="BLOWINGの活動風景" class="photo-img" />
   </div>
 
-  <div class="about-img">
-    <Image src={aboutImg} alt="BLOWINGの活動風景" class="img-cv" />
-  </div>
-
-  <div class="read">
+  <div class="lead">
     <p>
       2020年度から始動した新しいマーチングバンドです。<br
         class="only-l"
@@ -24,43 +22,34 @@ import SectionTitle from "./SectionTitle.astro";
 </section>
 
 <style>
-  .about-img {
-    grid-column: 2 / 3;
-    grid-row: 1 / 3;
-    margin: 0;
-    padding: 0;
-    min-height: 100%;
-  }
-  .img-cv {
-    margin: 0;
-    padding: 0;
-    display: block;
-    width: 100%;
-    height: auto;
-    max-height: 540px;
-    object-fit: cover;
+  @media (width < 640px) {
+    .photo {
+      margin-top: 1rem;
+    }
   }
 
-  @media (width > 641px) {
-    #about .ttl {
-      padding: 60px 2em 0 20%;
-    }
-    #about {
-      padding: 0;
+  @media (640px <= width) {
+    .root {
       display: grid;
       grid-template-columns: 1fr 1fr;
-    }
-
-    .about-img {
-      margin: 0;
       padding: 0;
     }
-    .about-img .img-cv {
+
+    .title {
+      padding: 60px 2em 0 20%;
+    }
+
+    .photo {
+      grid-column: 2 / 3;
+      grid-row: 1 / 3;
+    }
+
+    .photo-img {
       height: 100%;
       object-fit: cover;
     }
 
-    #about .read {
+    .lead {
       padding: 0 2em 60px 20%;
     }
   }

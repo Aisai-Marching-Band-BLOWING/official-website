@@ -1,14 +1,14 @@
 ---
-const { title, subtitle } = Astro.props;
+const { title, subtitle, ...props } = Astro.props;
 ---
 
-<div class="ttl">
-  <span>{subtitle}</span>
+<div {...props}>
+  <span class="subtitle">{subtitle}</span>
   <h2>{title}</h2>
 </div>
 
 <style>
-  .ttl span {
+  .subtitle {
     margin-left: 1rem;
     font-weight: bold;
   }
