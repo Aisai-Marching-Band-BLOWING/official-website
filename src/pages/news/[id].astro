@@ -1,0 +1,23 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+  const rawPosts = await getCollection("news");
+
+  return rawPosts.map((post) => ({
+    params: { year: post.data.year, id: post.id },
+    props: { post },
+  }));
+}
+
+const { year, id } = Astro.params;
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<BaseLayout>
+  <section>
+    <Content />
+  </section>
+</BaseLayout>

@@ -1,0 +1,23 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+  const allPosts = await getCollection("news");
+  const uniqueTags = [...new Set(allPosts.map((post) => post.data.year))];
+
+  return uniqueTags.map((year) => {
+    const filteredPosts = allPosts.filter((post) => post.data.year === year);
+    return {
+      params: { year },
+      props: { posts: filteredPosts },
+    };
+  });
+}
+
+const { year } = Astro.params;
+const { posts } = Astro.props;
+const { Content } = await render(posts);
+---
+
+<BaseLayout><Content /></BaseLayout>

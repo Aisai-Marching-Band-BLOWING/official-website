@@ -1,0 +1,33 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { getCollection, render } from "astro:content";
+
+const rawPosts = await getCollection("news");
+
+const posts = await Promise.all(
+  rawPosts.map(async (post) => {
+    const { Content } = await render(post);
+    return { ...post, Content };
+  })
+);
+
+posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<BaseLayout pageTitle="お知らせ">
+  <section>
+    <ul>
+      {
+        posts.map((post) => (
+          <li>
+            <a href={`/news/${post.data.year}/${post.id}`}>
+              <h4 class="title">{post.data.title}</h4>
+              <p class="date">{/* <FormattedDate date={post.data.pubDate} /> */}</p>
+            </a>
+            <post.Content />
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</BaseLayout>
