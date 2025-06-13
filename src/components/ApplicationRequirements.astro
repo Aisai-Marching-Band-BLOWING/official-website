@@ -37,9 +37,8 @@
     color: rgb(var(--attention-color));
     font-size: 0.9rem;
   }
-
   table {
-    border-collapse: collapse;
+    border-collapse: separate;
     border-spacing: 0;
     width: 100%;
     margin-top: calc(var(--ratio) * 1rem);
@@ -47,6 +46,7 @@
       0 4px 6px -1px rgba(0, 0, 0, 0.1),
       0 2px 4px -1px rgba(0, 0, 0, 0.06);
     border-radius: 8px;
+    border: 1px solid rgb(var(--brand-color));
     overflow: hidden;
   }
 
@@ -56,7 +56,7 @@
     padding: 1.25rem 1rem;
     text-align: left;
     vertical-align: top;
-    border-bottom: 1px solid rgba(var(--gray1), 0.3);
+    border: 1px solid rgba(var(--brand-color));
     transition: background-color 0.2s ease;
   }
 
@@ -143,77 +143,8 @@
   }
   /*スマホ*/
   @media (width < 640px) {
-    table {
-      width: 100%;
-      font-size: 0.9rem;
-    }
-
-    th,
-    td {
-      padding: 1rem 0.75rem;
-      display: block;
-      width: 100%;
-      border-right: none;
-      border-bottom: 1px solid rgba(var(--gray1), 0.3);
-    }
-
-    th {
-      background: rgb(var(--brand-color));
-      color: white;
-      font-weight: 600;
-      font-size: 0.9rem;
-      padding: 0.75rem;
-      margin-bottom: 0;
-    }
-
-    td {
-      background-color: rgb(var(--white));
-      padding: 1rem 0.75rem 1.25rem;
-      margin-bottom: 1.5rem;
-      border-radius: 0 0 8px 8px;
-      box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.1);
-    }
-
-    tr {
-      display: block;
-      margin-bottom: 1rem;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 2px 8px -2px rgba(0, 0, 0, 0.1);
-    }
-
-    tr:hover td {
-      background-color: rgb(var(--white));
-    }
-
-    #index-join .read {
-      margin-top: calc(var(--ratio) * 1rem);
-    }
-
-    #contact table {
-      display: block;
-      overflow: auto;
-    }
-
-    .join-img {
-      margin-top: calc(var(--ratio) * 1rem);
-      display: flex;
-      flex-direction: column;
-      gap: calc(var(--ratio) * 1rem);
-    }
-
-    form tr {
-      display: block;
-    }
-
-    form th {
-      display: block;
-    }
-
-    form td {
-      display: block;
-    }
   }
+
   /*スマホとタブレット*/
   @media (width < 960px) {
     table {
