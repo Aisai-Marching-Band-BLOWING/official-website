@@ -1,0 +1,22 @@
+---
+import aboutImg from "@/assets/about.webp";
+import { Image } from "astro:assets";
+import SectionTitle from "./SectionTitle.astro";
+---
+
+<section id="about">
+  <SectionTitle title="BLOWINGについて" subtitle="About BLOWING" />
+
+  <div class="about-img">
+    <Image src={aboutImg} alt="BLOWINGの活動風景" class="about-img" />
+  </div>
+
+  <div class="read">
+    <p>
+      2020年度から始動した新しいマーチングバンドです。<br
+        class="only-l"
+      />愛西市を活動拠点とし、地域貢献や青年育成を図るとともに、マーチングの発展を目指して活動していきます。
+    </p>
+    <a href="about.html" class="link-btn">詳しく見る</a>
+  </div>
+</section>

@@ -1,0 +1,466 @@
+---
+import IconEmail from "@/components/IconEmail.astro";
+import IconFacebook from "@/components/IconFacebook.astro";
+import IconInstagram from "@/components/IconInstagram.astro";
+import IconX from "@/components/IconX.astro";
+import SectionTitle from "./SectionTitle.astro";
+---
+
+<section id="contact">
+  <div class="contact-header">
+    <span class="contact-subtitle">CONTACT US</span>
+    <h2>お問い合わせ</h2>
+    <p class="contact-description">
+      各種SNSやメールでお気軽にお問い合わせください。
+    </p>
+  </div>
+
+  <!-- 
+    お問い合わせフォームボタン。いったん保留。
+
+    <a href="contact.html" class="link-btn">お問い合わせフォームはこちら</a>
+    <NavLink href="/join">お問い合わせフォームはこちら</NavLink>
+    
+    -->
+  <div class="contact-container">
+    <div class="contact-grid">
+      <div class="contact-card featured-card">
+        <div class="contact-icon">
+          <IconEmail size="2.5rem" color="rgb(var(--brand-color))" />
+        </div>
+        <div class="contact-content">
+          <h3 class="contact-type">E-mail</h3>
+          <p class="contact-description">
+            メールでお気軽にお問い合わせください
+          </p>
+          <div class="contact-value">
+            <a
+              href="mailto:aisai.marchingband@gmail.com"
+              class="contact-link primary-link"
+            >
+              aisai.marchingband@gmail.com
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <div class="contact-icon">
+          <IconFacebook size="2rem" color="rgb(var(--black))" />
+        </div>
+        <div class="contact-content">
+          <h3 class="contact-type">Facebook</h3>
+          <div class="contact-value">
+            <a
+              class="contact-link"
+              href="https://www.facebook.com/aisaimb/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              @aisaimb
+              <span class="external-icon">↗</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <div class="contact-icon">
+          <IconInstagram size="2rem" color="rgb(var(--black))" />
+        </div>
+        <div class="contact-content">
+          <h3 class="contact-type">Instagram</h3>
+          <div class="contact-value">
+            <a
+              class="contact-link"
+              href="https://www.instagram.com/aisaimb/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              @aisaimb
+              <span class="external-icon">↗</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <div class="contact-icon">
+          <IconX size="2rem" color="rgb(var(--black))" />
+        </div>
+        <div class="contact-content">
+          <h3 class="contact-type">Twitter</h3>
+          <div class="contact-value">
+            <a
+              class="contact-link"
+              href="https://twitter.com/aisai_mb"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              @aisai_mb
+              <span class="external-icon">↗</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  #contact {
+    background: linear-gradient(
+      135deg,
+      rgba(var(--white), 0.1) 0%,
+      rgba(var(--white), 1) 100%
+    );
+    position: relative;
+  }
+
+  #contact::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: var(--shippo-pattern-img);
+    background-size: var(--shippo-pattern-size);
+    background-color: rgba(var(--brand-color), 0.02);
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  .contact-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .contact-subtitle {
+    display: inline-block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: rgb(var(--brand-color));
+    background: linear-gradient(
+      135deg,
+      rgba(var(--brand-color), 0.1),
+      rgba(var(--light-brand-color), 0.2)
+    );
+    padding: 0.5rem 1.5rem;
+    border-radius: 50px;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+  }
+
+  .contact-header h2 {
+    color: rgb(var(--black));
+    margin-bottom: 1rem;
+    font-weight: 700;
+  }
+
+  .contact-description {
+    color: rgb(var(--black));
+    opacity: 0.8;
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    line-height: 1.7;
+  }
+  .contact-container {
+    position: relative;
+    z-index: 1;
+  }
+
+  .contact-grid {
+    display: grid;
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  @media (width < 640px) {
+    .contact-content {
+    }
+  }
+
+  @media (width < 768px) {
+    .contact-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+  }
+
+  @media (768px <= width < 1024px) {
+    .contact-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (1024px <= width) {
+    .contact-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .contact-card {
+    background: rgb(var(--white));
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow:
+      0 4px 6px -1px rgba(0, 0, 0, 0.08),
+      0 2px 4px -1px rgba(0, 0, 0, 0.04),
+      inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(var(--gray2), 0.3);
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(
+      90deg,
+      rgb(var(--brand-color)),
+      rgb(var(--sub-color))
+    );
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+  }
+
+  .contact-card:hover {
+    transform: translateY(-6px);
+    box-shadow:
+      0 20px 25px -5px rgba(0, 0, 0, 0.12),
+      0 10px 10px -5px rgba(0, 0, 0, 0.06),
+      inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  }
+
+  .contact-card:hover::before {
+    transform: scaleX(1);
+  }
+
+  .featured-card {
+    grid-column: span 2;
+    background: linear-gradient(
+      135deg,
+      rgba(var(--brand-color), 0.03) 0%,
+      rgba(var(--light-brand-color), 0.08) 100%
+    );
+    border: 1px solid rgba(var(--brand-color), 0.15);
+  }
+
+  @media (width < 768px) {
+    .featured-card {
+      grid-column: span 1;
+    }
+  }
+
+  .contact-icon {
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.4s ease;
+    position: relative;
+  }
+
+  .contact-icon::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(
+      135deg,
+      rgb(var(--brand-color)),
+      rgb(var(--sub-color))
+    );
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+  }
+
+  .contact-card:hover .contact-icon {
+    transform: scale(1.1);
+  }
+
+  .contact-card:hover .contact-icon::before {
+    opacity: 0.2;
+  }
+
+  .featured-card .contact-icon {
+    width: 70px;
+    height: 70px;
+  }
+
+  .contact-content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .contact-type {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: rgb(var(--black));
+    margin: 0 0 0.5rem 0;
+    letter-spacing: -0.025em;
+  }
+
+  .featured-card .contact-type {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .contact-description {
+    font-size: 0.95rem;
+    color: rgba(var(--black), 0.7);
+    margin: 0 0 1rem 0;
+    line-height: 1.5;
+  }
+
+  .contact-value {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .contact-link {
+    text-decoration: none;
+    color: rgb(var(--brand-color));
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 6px;
+    padding: 0.25rem 0;
+  }
+
+  .primary-link {
+    font-weight: 600;
+    font-size: 1.1rem;
+  }
+
+  .contact-link:hover {
+    color: rgb(var(--sub-color));
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+  }
+
+  .external-icon {
+    font-size: 0.875rem;
+    opacity: 0.6;
+    transition: all 0.3s ease;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .contact-link:hover .external-icon {
+    opacity: 1;
+    transform: translate(2px, -2px);
+    background: rgba(var(--sub-color), 0.15);
+  }
+
+  @media (width < 640px) {
+    .contact-card {
+      padding: 1.5rem;
+      flex-direction: column;
+      text-align: center;
+      gap: 1rem;
+    }
+
+    .contact-icon {
+      margin: 0 auto;
+    }
+
+    .contact-description {
+      font-size: 0.9rem;
+    }
+
+    .contact-header {
+      margin-bottom: 2rem;
+    }
+
+    .contact-type {
+      font-size: 1.125rem;
+    }
+
+    .featured-card .contact-type {
+      font-size: 1.25rem;
+    }
+  }
+
+  /* Animation for cards */
+  .contact-card {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease forwards;
+  }
+
+  .contact-card:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+  .contact-card:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  .contact-card:nth-child(3) {
+    animation-delay: 0.3s;
+  }
+  .contact-card:nth-child(4) {
+    animation-delay: 0.4s;
+  }
+
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Accessibility improvements */
+  .contact-link:focus {
+    outline: 2px solid rgb(var(--brand-color));
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+
+  .contact-card:focus-within {
+    outline: 2px solid rgb(var(--brand-color));
+    outline-offset: 2px;
+    border-radius: 16px;
+  }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    .contact-card {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
+
+    .contact-card:hover {
+      transform: none;
+    }
+
+    .contact-icon {
+      transition: none;
+    }
+  }
+</style>
