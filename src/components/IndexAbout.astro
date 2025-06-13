@@ -5,10 +5,12 @@ import SectionTitle from "./SectionTitle.astro";
 ---
 
 <section id="about">
-  <SectionTitle title="BLOWINGについて" subtitle="About BLOWING" />
+  <div class="ttl">
+    <SectionTitle title="BLOWINGとは" subtitle="ABOUT" />
+  </div>
 
   <div class="about-img">
-    <Image src={aboutImg} alt="BLOWINGの活動風景" class="about-img" />
+    <Image src={aboutImg} alt="BLOWINGの活動風景" class="img-cv" />
   </div>
 
   <div class="read">
@@ -20,3 +22,46 @@ import SectionTitle from "./SectionTitle.astro";
     <a href="about.html" class="link-btn">詳しく見る</a>
   </div>
 </section>
+
+<style>
+  .about-img {
+    grid-column: 2 / 3;
+    grid-row: 1 / 3;
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+  }
+  .img-cv {
+    margin: 0;
+    padding: 0;
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 540px;
+    object-fit: cover;
+  }
+
+  @media (width > 641px) {
+    #about .ttl {
+      padding: 60px 2em 0 20%;
+    }
+    #about {
+      padding: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .about-img {
+      margin: 0;
+      padding: 0;
+    }
+    .about-img .img-cv {
+      height: 100%;
+      object-fit: cover;
+    }
+
+    #about .read {
+      padding: 0 2em 60px 20%;
+    }
+  }
+</style>
