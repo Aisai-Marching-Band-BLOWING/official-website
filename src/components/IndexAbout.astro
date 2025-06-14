@@ -1,0 +1,56 @@
+---
+import photo from "@/assets/about.webp";
+import { Image } from "astro:assets";
+import SectionTitle from "./SectionTitle.astro";
+---
+
+<section class="root">
+  <SectionTitle title="BLOWINGとは" subtitle="ABOUT" class="title" />
+
+  <div class="photo">
+    <Image src={photo} alt="BLOWINGの活動風景" class="photo-img" />
+  </div>
+
+  <div class="lead">
+    <p>
+      2020年度から始動した新しいマーチングバンドです。<br
+        class="only-l"
+      />愛西市を活動拠点とし、地域貢献や青年育成を図るとともに、マーチングの発展を目指して活動していきます。
+    </p>
+    <a href="about.html" class="link-btn">詳しく見る</a>
+  </div>
+</section>
+
+<style>
+  @media (width < 640px) {
+    .photo {
+      margin-top: 1rem;
+    }
+  }
+
+  @media (640px <= width) {
+    .root {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding: 0;
+    }
+
+    .title {
+      padding: 60px 2em 0 20%;
+    }
+
+    .photo {
+      grid-column: 2 / 3;
+      grid-row: 1 / 3;
+    }
+
+    .photo-img {
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .lead {
+      padding: 0 2em 60px 20%;
+    }
+  }
+</style>

@@ -1,0 +1,184 @@
+<table>
+  <tr>
+    <th>参加対象</th>
+    <td>
+      小学5年生以上（経験者・初心者問いません）<br />
+      ・愛西市及び近郊に在住・在学でマーチングに興味のある方<br />
+      ・1年間を通して活動に参加できる方<br />
+
+      <p>※楽器等の貸与についてはご相談ください。</p>
+    </td>
+  </tr>
+  <tr>
+    <th>練習日時</th>
+    <td>
+      原則、毎週日曜日　9:00～18:00<br />
+      <p>不定期で土曜日、祝日の練習あり</p>
+    </td>
+  </tr>
+  <tr>
+    <th>練習場所</th>
+    <td>主に愛西市を中心とした小学校・スポーツセンターなど</td>
+  </tr>
+  <tr>
+    <th>参加費用</th>
+    <td>
+      小中学生：月額3,000円<br />
+      高校生以上：月額6,000円
+    </td>
+  </tr>
+</table>
+
+<style>
+  /* テーブル基本スタイル */
+  p {
+    margin-top: 5px;
+    padding: 0;
+    color: rgb(var(--attention-color));
+    font-size: 0.9rem;
+  }
+  table {
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+    margin-top: calc(var(--ratio) * 1rem);
+    box-shadow:
+      0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    border-radius: 8px;
+    border: 1px solid rgb(var(--brand-color));
+    overflow: hidden;
+  }
+
+  /* セル共通スタイル */
+  th,
+  td {
+    padding: 1.25rem 1rem;
+    text-align: left;
+    vertical-align: top;
+    border: 1px solid rgba(var(--brand-color));
+    transition: background-color 0.2s ease;
+  }
+
+  /* ヘッダーセル */
+  th {
+    background: linear-gradient(
+      135deg,
+      rgb(var(--light-brand-color)),
+      rgba(var(--light-brand-color), 0.9)
+    );
+    color: rgb(var(--black));
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-align: center;
+    vertical-align: middle;
+    letter-spacing: 0.025em;
+    width: 25%;
+    border-right: 1px solid rgba(var(--brand-color), 0.2);
+  }
+
+  /* データセル */
+  td {
+    background-color: rgb(var(--white));
+    color: rgb(var(--text-color));
+    line-height: 1.6;
+  }
+
+  /* 行のホバー効果 */
+  tr:hover td {
+    background-color: rgba(var(--light-brand-color), 0.1);
+  }
+
+  /* 最後の行のボーダー除去 */
+  tr:last-child th,
+  tr:last-child td {
+    border-bottom: none;
+  }
+
+  /* コンテナスタイル */
+  .application-requirements {
+    margin-top: calc(var(--ratio) * 1rem);
+  }
+
+  .application-requirements table {
+    margin-top: calc(var(--ratio) * 1rem);
+  }
+
+  .index-join-area {
+    margin-top: 1rem;
+  }
+
+  /* 特定のページ用スタイル */
+  #join {
+    --shippo-bg-color: var(--gray3);
+    background-color: rgb(var(--shippo-bg-color));
+    background-image: var(--shippo-pattern-img);
+    background-size: var(--shippo-pattern-size);
+  }
+
+  #join th {
+    background: linear-gradient(
+      135deg,
+      rgb(var(--light-brand-color)),
+      rgba(var(--light-brand-color), 0.9)
+    );
+    border-right: 1px solid rgba(var(--brand-color), 0.2);
+  }
+
+  #join td {
+    background-color: rgb(var(--white));
+  }
+
+  #index-join th {
+    background: linear-gradient(
+      135deg,
+      rgb(var(--light-brand-color)),
+      rgba(var(--light-brand-color), 0.9)
+    );
+    border-right: 1px solid rgba(var(--brand-color), 0.2);
+  }
+
+  #index-join td {
+    background-color: rgb(var(--white));
+  }
+  /*スマホ*/
+  @media (width < 640px) {
+  }
+
+  /*スマホとタブレット*/
+  @media (width < 960px) {
+    table {
+      font-size: 0.95rem;
+    }
+
+    th,
+    td {
+      padding: 1.1rem 0.9rem;
+    }
+  }
+
+  /* タブレット */
+  @media (width >= 640px) and (width < 960px) {
+    #contact table {
+      width: 100%;
+    }
+
+    .index-join-area {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(30rem, max-content));
+      justify-content: center;
+      gap: calc(var(--ratio) * 1rem);
+    }
+  }
+
+  /* PC */
+  @media (width >= 960px) {
+    th {
+      width: 20%;
+    }
+
+    td {
+      width: 80%;
+    }
+  }
+</style>

@@ -1,0 +1,101 @@
+---
+import SectionTitle from "./SectionTitle.astro";
+---
+
+<section class="root">
+  <SectionTitle title="お知らせ" subtitle="NEWS" />
+
+  <div class="post-area">
+    <article class="post">
+      <a href="news.html#20250522" class="post-link">
+        <p class="post-link-date">2025/05/22</p>
+        <h3>【Jr.】2025年度の団員募集チラシを更新しました</h3>
+      </a>
+    </article>
+    <article class="post">
+      <a href="news.html#20250407" class="post-link">
+        <p class="post-link-date">2025/04/07</p>
+        <h3>第4回スプリングコンサートを開催します</h3>
+      </a>
+    </article>
+    <article class="post">
+      <a href="news2024.html#20250228" class="post-link">
+        <p class="post-link-date">2025/02/28</p>
+        <h3>2025年度の団員募集チラシを公開しました</h3>
+      </a>
+    </article>
+    <article class="post">
+      <a href="news2024.html#20250221" class="post-link">
+        <p class="post-link-date">2025/02/21</p>
+        <h3>【Jr.】第1回定期演奏会を開催します</h3>
+      </a>
+    </article>
+  </div>
+
+  <a href="news.html" class="link-btn">お知らせ一覧はこちら</a>
+</section>
+
+<style>
+  .root {
+    --shippo-bg-color: var(--gray3);
+    background-color: rgb(var(--shippo-bg-color));
+    background-image: var(--shippo-pattern-img);
+    background-size: var(--shippo-pattern-size);
+  }
+
+  .post-area {
+    margin-top: 1rem;
+    display: grid;
+    align-items: start;
+    grid-template-columns: repeat(auto-fit, minmax(17em, 1fr));
+    gap: 1rem;
+    max-height: 50vh;
+    overflow: auto;
+  }
+
+  .post {
+    position: relative;
+  }
+
+  .post-link {
+    display: block;
+    background-color: rgb(var(--white));
+    padding: 1rem 4rem 1rem 1rem;
+  }
+
+  .post-link::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 30px 30px 0 0;
+    border-color: rgb(var(--brand-color)) rgba(var(--brand-color), 0)
+      rgba(var(--brand-color), 0) rgba(var(--brand-color), 0);
+    z-index: 0;
+  }
+
+  .post-link::after {
+    content: "";
+    display: block;
+    width: 11px;
+    height: 11px;
+    border-top: 2px solid rgb(var(--gray1));
+    border-right: 2px solid rgb(var(--gray1));
+    position: absolute;
+    top: 50%;
+    right: 2rem;
+    transform: translateY(-50%) rotate(45deg);
+  }
+
+  .post-link-date {
+    font-size: 0.7rem;
+    margin: 0 1rem;
+  }
+
+  .post-link h3 {
+    margin: 0;
+  }
+</style>

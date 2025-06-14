@@ -1,0 +1,15 @@
+---
+const { title, subtitle, ...props } = Astro.props;
+---
+
+<div {...props}>
+  <span class="subtitle">{subtitle}</span>
+  <h2>{title}</h2>
+</div>
+
+<style>
+  .subtitle {
+    margin-left: 1rem;
+    font-weight: bold;
+  }
+</style>
