@@ -4,6 +4,14 @@ import IndexNewsPostlink from "./IndexNewsPostlink.astro";
 import SectionTitle from "./SectionTitle.astro";
 
 const allPosts = await getCollection("news");
+const filteredPosts = allPosts
+  .filter((post) => {
+    // 6ヶ月以内に公開された投稿のみを表示
+    const now = new Date();
+    const sixMonthsAgo = new Date(now.getFullYear(), now.getMonth() - 6, now.getDate());
+    return post.data.pubDate > sixMonthsAgo;
+  })
+  .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
 ---
 
 <section class="root">
@@ -11,7 +19,7 @@ const allPosts = await getCollection("news");
 
   <div class="post-area">
     {
-      [...allPosts].reverse().map((post) => (
+      [...filteredPosts].map((post) => (
         <IndexNewsPostlink
           href={`news/${post.id}`}
           pubDate={post.data.pubDate
