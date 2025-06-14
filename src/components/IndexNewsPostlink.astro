@@ -1,0 +1,60 @@
+---
+const { href, pubDate, title } = Astro.props;
+---
+
+<article class="post">
+  <a href={href} class="post-link">
+    <span class="post-link-date">{pubDate}</span>
+    <h3 class="post-link-title">{title}</h3>
+  </a>
+</article>
+
+<style>
+  .post {
+    position: relative;
+  }
+
+  .post-link {
+    display: block;
+    background-color: rgb(var(--white));
+    padding: 1rem 4rem 1rem 1rem;
+
+    /* 左上の直角三角形 */
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 30px 30px 0 0;
+      border-color: rgb(var(--brand-color)) rgba(var(--brand-color), 0) rgba(var(--brand-color), 0)
+        rgba(var(--brand-color), 0);
+      z-index: 0;
+    }
+
+    /* 右矢印 */
+    &::after {
+      content: "";
+      display: block;
+      width: 11px;
+      height: 11px;
+      border-top: 2px solid rgb(var(--gray1));
+      border-right: 2px solid rgb(var(--gray1));
+      position: absolute;
+      top: 50%;
+      right: 2rem;
+      transform: translateY(-50%) rotate(45deg);
+    }
+  }
+
+  .post-link-date {
+    font-size: 0.7rem;
+    margin-inline: 1rem;
+  }
+
+  .post-link-title {
+    margin: 0;
+  }
+</style>
