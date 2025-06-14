@@ -1,5 +1,5 @@
 ---
-title: "サイトをリニューアルしました"
+title: "BLOWING Jr.を立ち上げます"
 pubDate: 2024-03-02
 year: "2024"
 ---
