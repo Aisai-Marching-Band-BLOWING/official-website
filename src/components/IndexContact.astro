@@ -3,6 +3,7 @@ import IconEmail from "@/components/IconEmail.astro";
 import IconFacebook from "@/components/IconFacebook.astro";
 import IconInstagram from "@/components/IconInstagram.astro";
 import IconX from "@/components/IconX.astro";
+import LinkButton from "./LinkButton.astro";
 import SectionTitle from "./SectionTitle.astro";
 ---
 
@@ -10,7 +11,8 @@ import SectionTitle from "./SectionTitle.astro";
   <SectionTitle title="お問い合わせ" subtitle="CONTACT US" />
 
   <p>各種SNSやメールでお気軽にお問い合わせください。</p>
-  <a href="contact.html" class="link-btn">お問い合わせフォームはこちら</a>
+  <LinkButton href="/contact/" backgroundRGB="var(--black)">お問い合わせフォームはこちら</LinkButton
+  >
 
   <div class="contact-container">
     <div class="contact-grid">
@@ -20,14 +22,9 @@ import SectionTitle from "./SectionTitle.astro";
         </div>
         <div class="contact-content">
           <h3 class="contact-type">E-mail</h3>
-          <p class="contact-description">
-            メールでお気軽にお問い合わせください
-          </p>
+          <p class="contact-description">メールでお気軽にお問い合わせください</p>
           <div class="contact-value">
-            <a
-              href="mailto:aisai.marchingband@gmail.com"
-              class="contact-link primary-link"
-            >
+            <a href="mailto:aisai.marchingband@gmail.com" class="contact-link primary-link">
               aisai.marchingband@gmail.com
             </a>
           </div>
@@ -165,11 +162,7 @@ import SectionTitle from "./SectionTitle.astro";
     left: 0;
     right: 0;
     height: 3px;
-    background: linear-gradient(
-      90deg,
-      rgb(var(--brand-color)),
-      rgb(var(--sub-color))
-    );
+    background: linear-gradient(90deg, rgb(var(--brand-color)), rgb(var(--sub-color)));
     transform: scaleX(0);
     transition: transform 0.3s ease;
   }
@@ -218,11 +211,7 @@ import SectionTitle from "./SectionTitle.astro";
     content: "";
     position: absolute;
     inset: -2px;
-    background: linear-gradient(
-      135deg,
-      rgb(var(--brand-color)),
-      rgb(var(--sub-color))
-    );
+    background: linear-gradient(135deg, rgb(var(--brand-color)), rgb(var(--sub-color)));
     border-radius: 50%;
     opacity: 0;
     transition: opacity 0.3s ease;

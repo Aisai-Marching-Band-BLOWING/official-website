@@ -2,6 +2,7 @@
 import { formatDateToYYYYMMDD } from "@/scripts/formatDateToYYYYMMDD";
 import { getCollection } from "astro:content";
 import IndexNewsPostlink from "./IndexNewsPostlink.astro";
+import LinkButton from "./LinkButton.astro";
 import SectionTitle from "./SectionTitle.astro";
 
 const allPosts = await getCollection("news");
@@ -30,7 +31,7 @@ const filteredPosts = allPosts
     }
   </div>
 
-  <a href="news.html" class="link-btn">お知らせ一覧はこちら</a>
+  <LinkButton href="/news/">お知らせ一覧はこちら</LinkButton>
 </section>
 
 <style>

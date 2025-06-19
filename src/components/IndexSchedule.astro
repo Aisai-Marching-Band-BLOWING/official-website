@@ -1,15 +1,14 @@
 ---
+import LinkButton from "./LinkButton.astro";
 import SectionTitle from "./SectionTitle.astro";
 ---
 
 <section class="root">
   <SectionTitle title="活動予定" subtitle="SCHEDULE" />
 
-  <p>
-    練習の体験希望はいつでも受け付けています。お気軽にお問い合わせください。
-  </p>
+  <p>練習の体験希望はいつでも受け付けています。お気軽にお問い合わせください。</p>
 
-  <a href="contact.html" class="link-btn">お問い合わせはこちら</a>
+  <LinkButton href="/contact/">練習参加申し込みはこちら</LinkButton>
 
   <div class="calendar">
     <iframe
@@ -31,6 +30,6 @@ import SectionTitle from "./SectionTitle.astro";
   }
 
   .calendar {
-    margin-top: calc(var(--ratio) + 1rem);
+    margin-top: calc(var(--ratio) * 1rem);
   }
 </style>
