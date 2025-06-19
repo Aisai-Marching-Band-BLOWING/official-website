@@ -1,4 +1,7 @@
 ---
+import heroImageSrc from "@/assets/hero.webp";
+import { getImage } from "astro:assets";
+const heroImage = await getImage({ src: heroImageSrc });
 const { ...props } = Astro.props;
 ---
 
@@ -7,10 +10,9 @@ const { ...props } = Astro.props;
   <span class="scroll-arrow">SCROLL</span>
 </header>
 
-<style>
+<style define:vars={{ heroImage: `url(${heroImage.src})` }}>
   header {
-    background: linear-gradient(rgba(var(--black), 0.4), rgba(var(--black), 0.4)),
-      url("/img/hero.webp");
+    background: linear-gradient(rgba(var(--black), 0.4), rgba(var(--black), 0.4)), var(--heroImage);
     background-size: cover;
     background-position: center center;
     color: rgb(var(--white));

@@ -1,4 +1,7 @@
 ---
+import heroImageSrc from "@/assets/hero.webp";
+import { getImage } from "astro:assets";
+const heroImage = await getImage({ src: heroImageSrc });
 const { pageTitle, ...props } = Astro.props;
 ---
 
@@ -6,10 +9,9 @@ const { pageTitle, ...props } = Astro.props;
   <h1>{pageTitle}</h1>
 </header>
 
-<style>
+<style define:vars={{ heroImage: `url(${heroImage.src})` }}>
   header {
-    background: linear-gradient(rgba(var(--black), 0.4), rgba(var(--black), 0.4)),
-      url("/img/hero.webp");
+    background: linear-gradient(rgba(var(--black), 0.4), rgba(var(--black), 0.4)), var(--heroImage);
     background-size: cover;
     background-position: center center;
     color: rgb(var(--white));
