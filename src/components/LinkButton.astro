@@ -1,0 +1,34 @@
+---
+const { href, backgroundRGB, ...props } = Astro.props;
+---
+
+<a href={href} class="link-button" {...props}><slot /></a>
+
+<style define:vars={{ backgroundRGB }}>
+  .link-button {
+    color: rgb(var(--white));
+    font-weight: bold;
+    background-color: rgb(var(--backgroundRGB, var(--brand-color)));
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover,
+    &:focus {
+      --shippo-bg-color: rgb(var(--backgroundRGB, var(--brand-color)));
+      background-color: var(--shippo-bg-color);
+      background-image: var(--shippo-pattern-img);
+      background-size: var(--shippo-pattern-size);
+    }
+
+    @media (width < 640px) {
+      margin-top: calc(var(--ratio) * 1rem);
+    }
+
+    @media (640px <= width) {
+      max-width: 19rem;
+      margin: 1.5rem auto 0;
+    }
+  }
+</style>
