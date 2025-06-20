@@ -38,14 +38,10 @@
     font-size: 0.9rem;
   }
   table {
-    border-collapse: separate;
+    border-collapse: collapse;
     border-spacing: 0;
     width: 100%;
     margin-top: calc(var(--ratio) * 1rem);
-    box-shadow:
-      0 4px 6px -1px rgba(0, 0, 0, 0.1),
-      0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    border-radius: 8px;
     border: 1px solid rgb(var(--brand-color));
     overflow: hidden;
   }
@@ -57,24 +53,17 @@
     text-align: left;
     vertical-align: top;
     border: 1px solid rgba(var(--brand-color));
-    transition: background-color 0.2s ease;
   }
 
   /* ヘッダーセル */
   th {
-    background: linear-gradient(
-      135deg,
-      rgb(var(--light-brand-color)),
-      rgba(var(--light-brand-color), 0.9)
-    );
+    background: rgb(var(--light-brand-color));
     color: rgb(var(--black));
     font-weight: 600;
     font-size: 0.95rem;
     text-align: center;
     vertical-align: middle;
-    letter-spacing: 0.025em;
     width: 25%;
-    border-right: 1px solid rgba(var(--brand-color), 0.2);
   }
 
   /* データセル */
@@ -82,17 +71,6 @@
     background-color: rgb(var(--white));
     color: rgb(var(--text-color));
     line-height: 1.6;
-  }
-
-  /* 行のホバー効果 */
-  tr:hover td {
-    background-color: rgba(var(--light-brand-color), 0.1);
-  }
-
-  /* 最後の行のボーダー除去 */
-  tr:last-child th,
-  tr:last-child td {
-    border-bottom: none;
   }
 
   /* コンテナスタイル */
@@ -116,31 +94,14 @@
     background-size: var(--shippo-pattern-size);
   }
 
-  #join th {
-    background: linear-gradient(
-      135deg,
-      rgb(var(--light-brand-color)),
-      rgba(var(--light-brand-color), 0.9)
-    );
-    border-right: 1px solid rgba(var(--brand-color), 0.2);
-  }
-
   #join td {
     background-color: rgb(var(--white));
-  }
-
-  #index-join th {
-    background: linear-gradient(
-      135deg,
-      rgb(var(--light-brand-color)),
-      rgba(var(--light-brand-color), 0.9)
-    );
-    border-right: 1px solid rgba(var(--brand-color), 0.2);
   }
 
   #index-join td {
     background-color: rgb(var(--white));
   }
+
   /*スマホ*/
   @media (width < 640px) {
   }
