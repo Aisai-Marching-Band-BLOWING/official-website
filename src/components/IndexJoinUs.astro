@@ -8,7 +8,7 @@ import SectionTitle from "./SectionTitle.astro";
   <SectionTitle title="メンバー募集" subtitle="JOIN US" />
 
   <div class="index-join-area">
-    <ApplicationRequirements />
+    <div class="requirements"><ApplicationRequirements /></div>
     <div class="read">
       <h3>一緒に演奏・マーチングをしてくれる仲間を大募集しています！</h3>
       <p>
@@ -26,7 +26,27 @@ import SectionTitle from "./SectionTitle.astro";
     font-weight: bold;
   }
 
-  #index-join .read {
-    margin-top: calc(var(--ratio) * 1rem);
+  @media (width < 640px) {
+    #index-join .read {
+      margin-top: calc(var(--ratio) * 1rem);
+    }
+  }
+
+  @media (640px <= width) {
+    .index-join-area {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .requirements {
+      grid-column: 1 / 2;
+    }
+    .read {
+      grid-column: 2 / 3;
+      padding-left: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
   }
 </style>
