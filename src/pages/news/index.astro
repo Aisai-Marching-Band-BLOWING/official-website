@@ -10,7 +10,7 @@ const posts = await Promise.all(
     return { ...post, Content };
   })
 );
-posts.sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime());
+posts.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
 ---
 
 <NewsLayout>
