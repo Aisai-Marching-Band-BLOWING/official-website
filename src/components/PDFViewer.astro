@@ -1,0 +1,16 @@
+---
+const { fileId } = Astro.props;
+---
+
+<iframe class="pdf-viewer" src={`https://drive.google.com/file/d/${fileId}/preview`}>
+  <a class="link-btn"
+  href={`https://drive.google.com/file/d/${fileId}/view?usp=sharing`}>PDFを開く</a>
+</iframe>
+
+<style>
+  .pdf-viewer {
+    margin-top: calc(var(--ratio) * 1rem);
+    width: 100%;
+    height: min((100dvw - 3rem) * 1.414, 80dvh);
+  }
+</style>
