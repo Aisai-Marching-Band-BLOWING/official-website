@@ -6,16 +6,12 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 <BaseLayout pageTitle="概要" description="">
   <section id="philosophy">
     <h2>バンド理念</h2>
-    <div class="read">
-      <p>
-        私達は、マーチング・演奏活動を通して「喜び」や「感動」を「共感」したいと考えています。<br
-        /><br />
-        昨今では、楽器が吹きたいけどできない、マーチングがやりたいけどできない・・・<br /><br />
-        皆様の様々なくすぶった「想い」、心のどこかにある「夢」を実現できたらと考えています。<br
-        /><br />
-        「夢」を実現し、音楽を通し地域貢献に努めます！<br /><br />
-        団長　戸村拓哉
-      </p>
+    <div class="lead">
+      <p>私達は、マーチング・演奏活動を通して「喜び」や「感動」を「共感」したいと考えています。</p>
+      <p>昨今では、楽器が吹きたいけどできない、マーチングがやりたいけどできない・・・</p>
+      <p>皆様の様々なくすぶった「想い」、心のどこかにある「夢」を実現できたらと考えています。</p>
+      <p>「夢」を実現し、音楽を通し地域貢献に努めます！</p>
+      <p>団長　戸村拓哉</p>
     </div>
   </section>
 
@@ -29,3 +25,10 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
     <PDFViewer fileId="1-9oh8a5GL5r9gDCe_EL1LIDxwV1EdH_F" />
   </section>
 </BaseLayout>
+
+<style>
+  .lead {
+    max-width: 40rem;
+    margin: auto;
+  }
+</style>
