@@ -1,5 +1,31 @@
 ---
+import PDFViewer from "@/components/PDFViewer.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 ---
 
-<BaseLayout pageTitle="概要" description="">概要</BaseLayout>
+<BaseLayout pageTitle="概要" description="">
+  <section id="philosophy">
+    <h2>バンド理念</h2>
+    <div class="read">
+      <p>
+        私達は、マーチング・演奏活動を通して「喜び」や「感動」を「共感」したいと考えています。<br
+        /><br />
+        昨今では、楽器が吹きたいけどできない、マーチングがやりたいけどできない・・・<br /><br />
+        皆様の様々なくすぶった「想い」、心のどこかにある「夢」を実現できたらと考えています。<br
+        /><br />
+        「夢」を実現し、音楽を通し地域貢献に努めます！<br /><br />
+        団長　戸村拓哉
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <h2>規約</h2>
+    <PDFViewer fileId="1hGudFAK7CKEomfPSM2pp1cLu1Zfykv8J" />
+  </section>
+
+  <section>
+    <h2>年間計画</h2>
+    <PDFViewer fileId="1-9oh8a5GL5r9gDCe_EL1LIDxwV1EdH_F" />
+  </section>
+</BaseLayout>
