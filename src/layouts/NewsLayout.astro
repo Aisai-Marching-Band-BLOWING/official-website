@@ -1,0 +1,84 @@
+---
+import { getCollection } from "astro:content";
+import LinkButton from "../components/LinkButton.astro";
+import BaseLayout from "./BaseLayout.astro";
+const allPosts = await getCollection("news");
+const years = [...new Set(allPosts.map((post: any) => post.data.year))].sort((a, b) => b - a);
+---
+
+<BaseLayout
+  pageTitle="お知らせ"
+  description="Aisai Marching Band BLOWINGの最新情報やニュースをお届けします。"
+>
+  <section class="root">
+    <aside>
+      <details id="yearDetails">
+        <summary>年度別リンク</summary>
+        <div class="year-link-area">
+          {years.map((year) => <LinkButton href={`/news/${year}/`}>{year}年度</LinkButton>)}
+        </div>
+      </details>
+    </aside>
+    <div class="articles"><slot /></div>
+  </section>
+</BaseLayout>
+
+<script>
+  import "@/scripts/yearDetails.js";
+</script>
+
+<style>
+  .root {
+    --shippo-bg-color: var(--gray3);
+    background-color: rgb(var(--shippo-bg-color));
+    background-image: var(--shippo-pattern-img);
+    background-size: var(--shippo-pattern-size);
+
+    @media (640px <= width) {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 1.5rem;
+    }
+  }
+
+  aside {
+    background-color: rgb(var(--white));
+
+    @media (width < 640px) {
+      padding: 1rem;
+    }
+
+    @media (640px <= width) {
+      padding: 1.5rem;
+      position: sticky;
+      top: 1.5rem;
+      flex-shrink: 0;
+      width: 12rem;
+    }
+  }
+
+  summary {
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .year-link-area {
+    max-height: 60dvh;
+    overflow: auto;
+  }
+
+  .articles {
+    background-color: rgb(var(--white));
+
+    @media (width < 640px) {
+      padding: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    @media (640px <= width) {
+      padding: 1.5rem;
+    }
+  }
+</style>
