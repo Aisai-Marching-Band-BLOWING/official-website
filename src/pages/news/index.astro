@@ -1,6 +1,6 @@
 ---
+import NewsArticle from "@/components/NewsArticle.astro";
 import NewsLayout from "@/layouts/NewsLayout.astro";
-import { formatDateToYYYYMMDD } from "@/scripts/formatDateToYYYYMMDD";
 import { getCollection, render } from "astro:content";
 
 const rawPosts = await getCollection("news");
@@ -14,15 +14,5 @@ posts.sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDat
 ---
 
 <NewsLayout>
-  {
-    posts.map((post) => (
-      <article>
-        <h3 class="title">
-          <a href={`/news/${post.id}`}>{post.data.title}</a>
-        </h3>
-        <time class="date">{formatDateToYYYYMMDD(post.data.pubDate)}</time>
-        <post.Content />
-      </article>
-    ))
-  }
+  {posts.map((post) => <NewsArticle post={post} />)}
 </NewsLayout>

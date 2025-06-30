@@ -1,0 +1,23 @@
+---
+const { post } = Astro.props;
+import { formatDateToYYYYMMDD } from "@/scripts/formatDateToYYYYMMDD";
+---
+
+<article id={formatDateToYYYYMMDD(post.data.pubDate)}>
+  <h3><a href={`/news/${post.id}`}>{post.data.title}</a></h3>
+  <time class="date">{formatDateToYYYYMMDD(post.data.pubDate)}</time>
+  <post.Content />
+</article>
+
+<style>
+  article:not(:first-child) {
+    margin-top: 5rem;
+    padding-top: 3rem;
+    border-top: solid 1px rgb(var(--gray1));
+  }
+
+  .date {
+    display: inline-block;
+    font-size: 0.7rem;
+  }
+</style>
