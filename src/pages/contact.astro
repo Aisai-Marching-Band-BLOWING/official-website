@@ -1,5 +1,38 @@
 ---
+import LinkButton from "@/components/LinkButton.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 ---
 
-<BaseLayout pageTitle="お問い合わせ" description="">お問い合わせ</BaseLayout>
+<BaseLayout pageTitle="お問い合わせ" description="">
+  <section>
+    <h2>お問い合わせフォーム</h2>
+
+    <p>お問い合わせ内容に応じてフォームをお選びいただき、内容をご確認のうえ送信してください。</p>
+    <p>
+      自動で受付確認メールを送信いたします。メールが送信されない場合、お手数ですが、下記メールアドレスにご連絡ください。<br
+      />
+      E-mail: aisai.marchingband[at]gmail.com
+    </p>
+
+    <h3>練習見学、入団を希望している方</h3>
+    <p>
+      練習見学、入団を希望している方は<a href="/join/">メンバー募集</a
+      >の募集要項をお読みの上、下記練習見学申込フォームよりお申し込みください。
+    </p>
+    <LinkButton href="https://forms.gle/L2Kr5bcAw6W2KfKY9" target="_blank" rel="noopener noreferrer"
+      >練習見学申込フォーム</LinkButton
+    >
+
+    <h3>お問い合わせ</h3>
+    <p>演奏依頼や演奏会に関するお問い合わせなど、お気軽にお問い合わせください。</p>
+    <LinkButton href="https://forms.gle/5KWd8cXxM4kSm56p9" target="_blank" rel="noopener noreferrer"
+      >お問い合わせフォーム</LinkButton
+    >
+
+    <h3>入団を決めた方</h3>
+    <p>1度以上練習見学を経験され、入団を決めた方は、下記入団フォームよりお申し込みください。</p>
+    <LinkButton href="https://forms.gle/6QAtpRXtbAtoqj3s8" target="_blank" rel="noopener noreferrer"
+      >入団フォーム</LinkButton
+    >
+  </section>
+</BaseLayout>
