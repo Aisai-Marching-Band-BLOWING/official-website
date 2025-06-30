@@ -1,5 +1,45 @@
 ---
+import flyer_join_us from "@/assets/2025flyer_join_us.webp";
+import flyer_jr_join_us from "@/assets/2025flyer_jr_join_us_2.webp";
+import ApplicationRequirements from "@/components/ApplicationRequirements.astro";
+import LinkButton from "@/components/LinkButton.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import { Image } from "astro:assets";
 ---
 
-<BaseLayout pageTitle="メンバー募集" description="">メンバー募集</BaseLayout>
+<BaseLayout pageTitle="メンバー募集" description="">
+  <section id="join">
+    <h2>バンドに参加しませんか？</h2>
+
+    <p>
+      Aisai Marching Band BLOWINGでは共に演奏する仲間を募集しています。<br />
+      マーチングバンドに興味がある方、楽器を演奏する場所を探されている方は、お問い合わせフォームよりご連絡ください。<br
+      />
+      <a href="/#schedule">活動予定はこちら</a>
+    </p>
+
+    <LinkButton href="/contact/">お問い合わせフォームはこちら</LinkButton>
+
+    <div class="join-img">
+      <Image src={flyer_join_us} alt="Aisai Marching Band BLOWINGの団員募集チラシ" />
+      <Image src={flyer_jr_join_us} alt="愛西マーチングバンド BLOWING Jr.の団員募集チラシ" />
+    </div>
+  </section>
+
+  <section id="application-requirements">
+    <h2>募集要項</h2>
+    <ApplicationRequirements />
+  </section>
+</BaseLayout>
+
+<style>
+  .join-img {
+    display: grid;
+    gap: calc(var(--ratio) * 1rem);
+    margin-top: calc(var(--ratio) * 1rem);
+
+    @media (640px <= width) {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+</style>
