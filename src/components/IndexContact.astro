@@ -2,6 +2,7 @@
 import IconFacebook from "@/components/IconFacebook.astro";
 import IconInstagram from "@/components/IconInstagram.astro";
 import IconX from "@/components/IconX.astro";
+import IconLink from "@/components/IconArrowup.astro";
 import LinkButton from "./LinkButton.astro";
 import SectionTitle from "./SectionTitle.astro";
 ---
@@ -10,7 +11,8 @@ import SectionTitle from "./SectionTitle.astro";
   <SectionTitle title="お問い合わせ" subtitle="CONTACT US" />
 
   <p>各種SNSやフォームでお気軽にお問い合わせください。</p>
-  <LinkButton href="/contact/" backgroundRGB="var(--black)">お問い合わせフォームはこちら</LinkButton
+  <LinkButton href="/contact/" backgroundRGB="var(--black)"
+    >お問い合わせフォームはこちら</LinkButton
   >
 
   <div class="contact-container">
@@ -29,7 +31,7 @@ import SectionTitle from "./SectionTitle.astro";
               rel="noopener noreferrer"
             >
               @aisaimb
-              <span class="external-icon">↗</span>
+              <IconLink size="1rem" color="rgb(var(--brand-color))" />
             </a>
           </div>
         </div>
@@ -49,7 +51,7 @@ import SectionTitle from "./SectionTitle.astro";
               rel="noopener noreferrer"
             >
               @aisaimb
-              <span class="external-icon">↗</span>
+              <IconLink size="1rem" color="rgb(var(--brand-color))" />
             </a>
           </div>
         </div>
@@ -69,7 +71,7 @@ import SectionTitle from "./SectionTitle.astro";
               rel="noopener noreferrer"
             >
               @aisai_mb
-              <span class="external-icon">↗</span>
+              <IconLink size="1rem" color="rgb(var(--brand-color))" />
             </a>
           </div>
         </div>
@@ -135,7 +137,11 @@ import SectionTitle from "./SectionTitle.astro";
     left: 0;
     right: 0;
     height: 3px;
-    background: linear-gradient(90deg, rgb(var(--brand-color)), rgb(var(--sub-color)));
+    background: linear-gradient(
+      90deg,
+      rgb(var(--brand-color)),
+      rgb(var(--sub-color))
+    );
     transform: scaleX(0);
     transition: transform 0.3s ease;
   }
@@ -168,7 +174,11 @@ import SectionTitle from "./SectionTitle.astro";
     content: "";
     position: absolute;
     inset: -2px;
-    background: linear-gradient(135deg, rgb(var(--brand-color)), rgb(var(--sub-color)));
+    background: linear-gradient(
+      135deg,
+      rgb(var(--brand-color)),
+      rgb(var(--sub-color))
+    );
     border-radius: 50%;
     opacity: 0;
     transition: opacity 0.3s ease;
@@ -218,24 +228,6 @@ import SectionTitle from "./SectionTitle.astro";
     text-decoration: underline;
     text-decoration-thickness: 2px;
     text-underline-offset: 4px;
-  }
-
-  .external-icon {
-    font-size: 0.875rem;
-    opacity: 0.6;
-    transition: all 0.3s ease;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .contact-link:hover .external-icon {
-    opacity: 1;
-    transform: translate(2px, -2px);
-    background: rgba(var(--sub-color), 0.15);
   }
 
   @media (width < 640px) {
