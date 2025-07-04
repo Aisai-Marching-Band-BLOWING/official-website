@@ -13,6 +13,6 @@ const posts = await Promise.all(
 posts.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
 ---
 
-<NewsLayout>
+<NewsLayout description="Aisai Marching Band BLOWINGの最新情報をお届けします。">
   {posts.map((post) => <NewsArticle post={post} />)}
 </NewsLayout>
