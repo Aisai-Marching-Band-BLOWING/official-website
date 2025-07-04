@@ -129,6 +129,9 @@ h4 {
 a {
   color: rgb(var(--link-rgb));
   text-decoration: underline;
+  &:hover {
+    text-decoration: none;
+  }
 }
 
 p {

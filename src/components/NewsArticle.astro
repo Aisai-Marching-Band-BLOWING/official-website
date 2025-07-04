@@ -4,12 +4,16 @@ import { formatDateToYYYYMMDD } from "@/scripts/formatDateToYYYYMMDD";
 ---
 
 <article id={post.id}>
-  <h3><a href={`/news/${post.id}`}>{post.data.title}</a></h3>
+  <h3><a class="post-title" href={`/news/${post.id}`}>{post.data.title}</a></h3>
   <time class="date">{formatDateToYYYYMMDD(post.data.pubDate)}</time>
   <post.Content />
 </article>
 
 <style>
+  .post-title {
+    color: inherit;
+    text-decoration: none;
+  }
   article:not(:first-child) {
     margin-top: 5rem;
     padding-top: 3rem;
