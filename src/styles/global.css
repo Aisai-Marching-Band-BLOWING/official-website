@@ -7,6 +7,7 @@
   --attention-color: 89, 144, 157;
   --red: 224, 54, 22;
   --black: 51, 51, 51;
+  --link-rgb: 0, 100, 255;
   --gray1: 184, 184, 184;
   --gray2: 235, 235, 235;
   --gray3: 245, 245, 245;
@@ -18,51 +19,67 @@
   --shippo-circle-color: rgba(var(--white), 0.5);
   --shippo-pattern-img: radial-gradient(
       circle at top left,
-      rgba(var(--shippo-bg-color), 0) calc(var(--shippo-radius) - var(--shippo-width)),
+      rgba(var(--shippo-bg-color), 0)
+        calc(var(--shippo-radius) - var(--shippo-width)),
       var(--shippo-circle-color) var(--shippo-radius),
-      rgba(var(--shippo-bg-color), 0) calc(var(--shippo-radius) + var(--shippo-width))
+      rgba(var(--shippo-bg-color), 0)
+        calc(var(--shippo-radius) + var(--shippo-width))
     ),
     radial-gradient(
       circle at top right,
-      rgba(var(--shippo-bg-color), 0) calc(var(--shippo-radius) - var(--shippo-width)),
+      rgba(var(--shippo-bg-color), 0)
+        calc(var(--shippo-radius) - var(--shippo-width)),
       var(--shippo-circle-color) var(--shippo-radius),
-      rgba(var(--shippo-bg-color), 0) calc(var(--shippo-radius) + var(--shippo-width))
+      rgba(var(--shippo-bg-color), 0)
+        calc(var(--shippo-radius) + var(--shippo-width))
     ),
     radial-gradient(
       circle at bottom left,
-      rgba(var(--shippo-bg-color), 0) calc(var(--shippo-radius) - var(--shippo-width)),
+      rgba(var(--shippo-bg-color), 0)
+        calc(var(--shippo-radius) - var(--shippo-width)),
       var(--shippo-circle-color) var(--shippo-radius),
-      rgba(var(--shippo-bg-color), 0) calc(var(--shippo-radius) + var(--shippo-width))
+      rgba(var(--shippo-bg-color), 0)
+        calc(var(--shippo-radius) + var(--shippo-width))
     ),
     radial-gradient(
       circle at bottom right,
-      rgba(var(--shippo-bg-color), 0) calc(var(--shippo-radius) - var(--shippo-width)),
+      rgba(var(--shippo-bg-color), 0)
+        calc(var(--shippo-radius) - var(--shippo-width)),
       var(--shippo-circle-color) var(--shippo-radius),
-      rgba(var(--shippo-bg-color), 0) calc(var(--shippo-radius) + var(--shippo-width))
+      rgba(var(--shippo-bg-color), 0)
+        calc(var(--shippo-radius) + var(--shippo-width))
     ),
     radial-gradient(
       circle at 50% 150%,
-      rgba(var(--shippo-bg-color), 0) calc(var(--shippo-radius) - var(--shippo-width)),
+      rgba(var(--shippo-bg-color), 0)
+        calc(var(--shippo-radius) - var(--shippo-width)),
       var(--shippo-circle-color) var(--shippo-radius),
-      rgba(var(--shippo-bg-color), 0) calc(var(--shippo-radius) + var(--shippo-width))
+      rgba(var(--shippo-bg-color), 0)
+        calc(var(--shippo-radius) + var(--shippo-width))
     ),
     radial-gradient(
       circle at 50% -50%,
-      rgba(var(--shippo-bg-color), 0) calc(var(--shippo-radius) - var(--shippo-width)),
+      rgba(var(--shippo-bg-color), 0)
+        calc(var(--shippo-radius) - var(--shippo-width)),
       var(--shippo-circle-color) var(--shippo-radius),
-      rgba(var(--shippo-bg-color), 0) calc(var(--shippo-radius) + var(--shippo-width))
+      rgba(var(--shippo-bg-color), 0)
+        calc(var(--shippo-radius) + var(--shippo-width))
     ),
     radial-gradient(
       circle at 150% 50%,
-      rgba(var(--shippo-bg-color), 0) calc(var(--shippo-radius) - var(--shippo-width)),
+      rgba(var(--shippo-bg-color), 0)
+        calc(var(--shippo-radius) - var(--shippo-width)),
       var(--shippo-circle-color) var(--shippo-radius),
-      rgba(var(--shippo-bg-color), 0) calc(var(--shippo-radius) + var(--shippo-width))
+      rgba(var(--shippo-bg-color), 0)
+        calc(var(--shippo-radius) + var(--shippo-width))
     ),
     radial-gradient(
       circle at -50% 50%,
-      rgba(var(--shippo-bg-color), 0) calc(var(--shippo-radius) - var(--shippo-width)),
+      rgba(var(--shippo-bg-color), 0)
+        calc(var(--shippo-radius) - var(--shippo-width)),
       var(--shippo-circle-color) var(--shippo-radius),
-      rgba(var(--shippo-bg-color), 0) calc(var(--shippo-radius) + var(--shippo-width))
+      rgba(var(--shippo-bg-color), 0)
+        calc(var(--shippo-radius) + var(--shippo-width))
     );
   --shippo-pattern-size: calc(var(--shippo-radius) * 1.732) var(--shippo-radius);
 
@@ -110,8 +127,8 @@ h4 {
 }
 
 a {
-  color: rgb(var(--black));
-  text-decoration: none;
+  color: rgb(var(--link-rgb));
+  text-decoration: underline;
 }
 
 p {
