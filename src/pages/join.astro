@@ -15,14 +15,22 @@ import { Image } from "astro:assets";
       Aisai Marching Band BLOWINGでは共に演奏する仲間を募集しています。<br />
       マーチングバンドに興味がある方、楽器を演奏する場所を探されている方は、お問い合わせフォームよりご連絡ください。<br
       />
-      <a href="/#schedule">活動予定はこちら</a>
+      <a href="/#schedule" target="_blank" rel="noopener noreferrer"
+        >活動予定はこちら</a
+      >
     </p>
 
     <LinkButton href="/contact/">お問い合わせフォームはこちら</LinkButton>
 
     <div class="join-img">
-      <Image src={flyer_join_us} alt="Aisai Marching Band BLOWINGの団員募集チラシ" />
-      <Image src={flyer_jr_join_us} alt="愛西マーチングバンド BLOWING Jr.の団員募集チラシ" />
+      <Image
+        src={flyer_join_us}
+        alt="Aisai Marching Band BLOWINGの団員募集チラシ"
+      />
+      <Image
+        src={flyer_jr_join_us}
+        alt="愛西マーチングバンド BLOWING Jr.の団員募集チラシ"
+      />
     </div>
   </section>
 
