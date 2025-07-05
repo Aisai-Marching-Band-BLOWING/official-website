@@ -39,7 +39,7 @@ import { Image } from "astro:assets";
 
   <section id="application-requirements">
     <h2>募集要項</h2>
-    <ApplicationRequirements />
+    <div class="application-requirements"><ApplicationRequirements /></div>
   </section>
 </BaseLayout>
 
@@ -52,5 +52,11 @@ import { Image } from "astro:assets";
     @media (640px <= width) {
       grid-template-columns: 1fr 1fr;
     }
+  }
+
+  .application-requirements {
+    margin-top: calc(var(--ratio) * 1rem);
+    display: flex;
+    justify-content: center;
   }
 </style>
