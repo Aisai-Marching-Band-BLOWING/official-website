@@ -17,26 +17,37 @@ const { size, color } = Astro.props;
 
 <style>
   .external-icon {
-    opacity: 0.6;
+    opacity: 0.8;
     transition: all 0.3s ease;
     border-radius: 50%;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
+    padding: 4px;
   }
 
   /* ホバー効果は親要素の .contact-link:hover で適用される */
   :global(.contact-link:hover) .external-icon {
     opacity: 1;
     transform: translate(2px, -2px);
-    background: rgba(var(--sub-color), 0.15);
+    background: rgba(var(--link-rgb), 0.15);
+    fill: rgb(var(--link-rgb));
   }
 
   /* より汎用的なホバー効果（親がリンクの場合） */
   :global(a:hover) .external-icon {
     opacity: 1;
     transform: translate(2px, -2px);
-    background: rgba(var(--sub-color, 79 70 229), 0.15);
+    background: rgba(var(--link-rgb), 0.15);
+    fill: rgb(var(--link-rgb));
+  }
+
+  /* モバイルサイズでのアイコン中央配置 */
+  @media (width < 640px) {
+    .external-icon {
+      margin: 0 auto;
+      align-self: center;
+    }
   }
 </style>
