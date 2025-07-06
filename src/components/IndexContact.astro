@@ -308,7 +308,8 @@ import SectionTitle from "./SectionTitle.astro";
   /* アクセシビリティの改善 */
   /* カードフォーカス時のスタイル */
   .contact-card:focus {
-    outline: none; /* フォーカス枠を削除 */
+    outline: 2px solid rgb(var(--brand-color)); /* 青色のフォーカス枠を追加 */
+    outline-offset: 4px; /* フォーカス枠を要素から少し離す */
   }
 
   /* アニメーション軽減設定（ユーザーが動きを抑制している場合） */
