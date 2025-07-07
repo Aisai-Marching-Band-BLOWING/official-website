@@ -75,257 +75,243 @@ import SectionTitle from "./SectionTitle.astro";
 </section>
 
 <style>
-  /* コンタクトセクション全体のコンテナ */
+  /* ========================================
+     レイアウト - コンテナとグリッド
+     ======================================== */
   .contact-container {
-    margin-top: 3rem; /* セクションタイトルから3rem上マージン */
+    margin-top: 3rem;
     position: relative;
-    z-index: 1; /* 他の要素より前面に表示 */
+    z-index: 1;
   }
 
-  /* コンタクトカードを配置するグリッドコンテナ */
   .contact-grid {
-    display: grid; /* グリッドレイアウトを使用 */
-    gap: 1.5rem; /* カード間の間隔 */
-    max-width: 1000px; /* 最大幅を制限 */
-    margin: 0 auto; /* 中央配置 */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
   }
 
-  /* モバイルサイズ（768px未満）のレイアウト */
-  @media (width < 768px) {
-    .contact-grid {
-      grid-template-columns: repeat(2, 1fr); /* 2列のグリッド */
-      gap: 1rem; /* カード間の間隔を狭める */
-    }
-  }
-
-  /* タブレットサイズ（768px以上1024px未満）のレイアウト */
-  @media (768px <= width < 1024px) {
-    .contact-grid {
-      grid-template-columns: repeat(2, 1fr); /* 2列のグリッド */
-    }
-  }
-
-  /* デスクトップサイズ（1024px以上）のレイアウト */
-  @media (1024px <= width) {
-    .contact-grid {
-      grid-template-columns: repeat(2, 1fr); /* 2列のグリッド */
-    }
-  }
-
-  /* 各コンタクトカードのスタイル */
+  /* ========================================
+     カードデザイン - 基本スタイル
+     ======================================== */
   .contact-card {
-    background: rgb(var(--white)); /* 白背景 */
-    border-radius: 16px; /* 角を丸く */
-    padding: 2rem; /* 内側の余白 */
-    /* 複数の影を重ねて立体感を演出 */
+    /* レイアウト */
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    position: relative;
+
+    /* デザイン */
+    background: rgb(var(--white));
+    border: 1px solid rgba(var(--gray2), 0.3);
+    border-radius: 16px;
+    padding: 2rem;
+    overflow: hidden;
+
+    /* シャドウ効果 */
     box-shadow:
       0 4px 6px -1px rgba(0, 0, 0, 0.08),
       0 2px 4px -1px rgba(0, 0, 0, 0.04),
       inset 0 1px 0 rgba(255, 255, 255, 0.6);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); /* スムーズなアニメーション */
-    border: 1px solid rgba(var(--gray2), 0.3); /* 薄い境界線 */
-    display: flex; /* フレックスレイアウト */
-    align-items: flex-start; /* 上端揃え */
-    gap: 1.5rem; /* アイコンとコンテンツの間隔 */
-    position: relative; /* 疑似要素の基準点 */
-    overflow: hidden; /* はみ出しを隠す */
-    text-decoration: none; /* リンクの下線を削除 */
-    color: inherit; /* 親要素の色を継承 */
+
+    /* リンクスタイル */
+    text-decoration: none;
+    color: inherit;
+
+    /* アニメーション初期設定 */
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease forwards;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  /* カード上部のアクセントライン（初期状態は非表示） */
+  /* アクセントライン - 上部装飾 */
   .contact-card::before {
-    content: ""; /* 空の疑似要素 */
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
-    height: 3px; /* ラインの高さ */
-    /* ブランドカラーからサブカラーへのグラデーション */
+    height: 3px;
     background: linear-gradient(
       90deg,
       rgb(var(--brand-color)),
       rgb(var(--sub-color))
     );
-    transform: scaleX(0); /* 初期状態では幅0 */
-    transition: transform 0.3s ease; /* スケールアニメーション */
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
   }
 
-  /* カードホバー時のスタイル */
+  /* カードのアニメーションタイミング */
+  .contact-card:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+  .contact-card:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  .contact-card:nth-child(3) {
+    animation-delay: 0.3s;
+  }
+
+  /* ========================================
+     インタラクション - ホバー効果
+     ======================================== */
   .contact-card:hover {
-    transform: translateY(-6px); /* 上に6px浮上 */
-    /* より強い影で浮いている感を演出 */
+    transform: translateY(-6px);
     box-shadow:
       0 20px 25px -5px rgba(0, 0, 0, 0.12),
       0 10px 10px -5px rgba(0, 0, 0, 0.06),
       inset 0 1px 0 rgba(255, 255, 255, 0.8);
   }
 
-  /* カードホバー時にコンタクト値の色を変更 */
-  .contact-card:hover .contact-value {
-    color: rgb(var(--sub-color)); /* サブカラーに変更 */
+  .contact-card:hover::before {
+    transform: scaleX(1);
   }
 
-  /* カードホバー時にArrowアイコンをサブカラーに変更 */
+  .contact-card:hover .contact-value,
   .contact-card:hover .contact-value svg {
     color: rgb(var(--sub-color));
   }
 
-  /* ホバー時にアクセントラインを表示 */
-  .contact-card:hover::before {
-    transform: scaleX(1); /* 幅を100%に */
+  .contact-card:hover .contact-icon {
+    transform: scale(1.1);
   }
 
-  /* アイコンコンテナのスタイル */
+  .contact-card:hover .contact-icon::before {
+    opacity: 0.2;
+  }
+
+  /* ========================================
+     カード内コンポーネント - アイコンとコンテンツ
+     ======================================== */
   .contact-icon {
-    flex-shrink: 0; /* 縮小しない */
+    flex-shrink: 0;
     width: 60px;
     height: 60px;
     display: flex;
-    align-items: center; /* 垂直中央揃え */
-    justify-content: center; /* 水平中央揃え */
-    border-radius: 50%; /* 円形 */
-    transition: all 0.4s ease; /* スムーズなアニメーション */
-    position: relative; /* 疑似要素の基準点 */
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    position: relative;
+    transition: all 0.4s ease;
   }
 
-  /* アイコン背景のグラデーション効果（初期状態は非表示） */
   .contact-icon::before {
-    content: ""; /* 空の疑似要素 */
+    content: "";
     position: absolute;
-    inset: -2px; /* アイコンより2px大きく */
-    /* ブランドカラーからサブカラーへのグラデーション */
+    inset: -2px;
     background: linear-gradient(
       135deg,
       rgb(var(--brand-color)),
       rgb(var(--sub-color))
     );
-    border-radius: 50%; /* 円形 */
-    opacity: 0; /* 初期状態では透明 */
-    transition: opacity 0.3s ease; /* 透明度アニメーション */
-    z-index: -1; /* アイコンの後ろに配置 */
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
   }
 
-  /* カードホバー時のアイコンスタイル */
-  .contact-card:hover .contact-icon {
-    transform: scale(1.1); /* 1.1倍に拡大 */
-  }
-
-  /* ホバー時にアイコン背景のグラデーションを表示 */
-  .contact-card:hover .contact-icon::before {
-    opacity: 0.2; /* 薄く表示 */
-  }
-
-  /* コンテンツエリアのスタイル */
   .contact-content {
-    flex: 1; /* 残りのスペースを占める */
-    min-width: 0; /* フレックスアイテムの最小幅を0に */
+    flex: 1;
+    min-width: 0;
   }
 
-  /* コンタクト種別（Facebook、Instagram等）のタイトル */
   .contact-type {
     font-size: 1.25rem;
-    font-weight: 700; /* 太字 */
+    font-weight: 700;
     color: rgb(var(--black));
-    margin: 0 0 0.5rem 0; /* 下のみマージン */
-    letter-spacing: -0.025em; /* 文字間隔を狭める */
+    margin: 0 0 0.5rem 0;
+    letter-spacing: -0.025em;
   }
 
-  /* コンタクト値（@aisaimb等）のコンテナ */
   .contact-value {
     font-size: 1rem;
-    line-height: 1.5; /* 行間 */
-    color: rgb(var(--brand-color)); /* ブランドカラー */
-    font-weight: 500; /* 中太字 */
-    transition: all 0.3s ease; /* スムーズなアニメーション */
-    display: inline-flex; /* インラインフレックス */
-    align-items: center; /* 垂直中央揃え */
-    gap: 0.5rem; /* テキストとアイコンの間隔 */
+    line-height: 1.5;
+    color: rgb(var(--brand-color));
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
   }
 
-  /* スマートフォンサイズ（640px未満）のレスポンシブデザイン */
+  /* ========================================
+     レスポンシブデザイン
+     ======================================== */
+  @media (width < 768px) {
+    .contact-grid {
+      gap: 1rem;
+    }
+  }
+
   @media (width < 640px) {
     .contact-card {
-      padding: 0.75rem; /* パディングを縮小 */
-      flex-direction: column; /* 縦並びレイアウト */
-      text-align: center; /* 中央揃え */
-      gap: 0.5rem; /* 要素間の間隔を縮小 */
-      align-items: center; /* 全ての要素を中央配置 */
+      padding: 0.75rem;
+      flex-direction: column;
+      text-align: center;
+      gap: 0.5rem;
+      align-items: center;
     }
+
     .contact-icon {
-      width: 45px; /* アイコンコンテナを小さく */
+      width: 45px;
       height: 45px;
-      margin: 0 auto; /* 中央配置 */
-      transform: scale(0.95); /* アイコンを70%に縮小 */
+      margin: 0 auto;
+      transform: scale(0.95);
     }
+
     .contact-content {
-      display: flex; /* フレックスレイアウト */
-      flex-direction: column; /* 縦並び */
-      align-items: center; /* 中央配置 */
-      width: 100%; /* 全幅使用 */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
     }
+
     .contact-type {
-      font-size: 0rem; /* 非表示にする */
+      font-size: 0rem; /* 非表示 */
     }
+
     .contact-value {
-      font-size: 0.75rem; /* フォントサイズを縮小 */
-      gap: 0.25rem; /* 間隔を縮小 */
-      justify-content: center; /* x軸中央配置 */
-      width: auto; /* 幅を自動調整 */
+      font-size: 0.75rem;
+      gap: 0.25rem;
+      justify-content: center;
+      width: auto;
     }
-    /* コンタクト値内のSVGアイコンを縮小 */
+
     .contact-value svg {
-      transform: scale(0.8); /* 80%に縮小 */
+      transform: scale(0.8);
     }
   }
 
-  /* カードのアニメーション設定 */
-  .contact-card {
-    opacity: 0; /* 初期状態では透明 */
-    transform: translateY(30px); /* 下に30px移動した状態 */
-    animation: fadeInUp 0.8s ease forwards; /* フェードインアップアニメーション */
-  }
-
-  /* 各カードの表示タイミングをずらす */
-  .contact-card:nth-child(1) {
-    animation-delay: 0.1s; /* 1番目のカード */
-  }
-  .contact-card:nth-child(2) {
-    animation-delay: 0.2s; /* 2番目のカード */
-  }
-  .contact-card:nth-child(3) {
-    animation-delay: 0.3s; /* 3番目のカード */
-  }
-
-  /* フェードインアップアニメーションの定義 */
+  /* ========================================
+     アニメーションとアクセシビリティ
+     ======================================== */
   @keyframes fadeInUp {
     to {
-      opacity: 1; /* 最終的に不透明 */
-      transform: translateY(0); /* 元の位置に戻る */
+      opacity: 1;
+      transform: translateY(0);
     }
   }
 
-  /* アクセシビリティの改善 */
-  /* カードフォーカス時のスタイル */
   .contact-card:focus {
-    outline: 2px solid rgb(var(--brand-color)); /* 青色のフォーカス枠を追加 */
-    outline-offset: 4px; /* フォーカス枠を要素から少し離す */
+    outline: 2px solid rgb(var(--brand-color));
+    outline-offset: 4px;
   }
 
-  /* アニメーション軽減設定（ユーザーが動きを抑制している場合） */
   @media (prefers-reduced-motion: reduce) {
     .contact-card {
-      animation: none; /* アニメーションを無効化 */
-      opacity: 1; /* 最初から表示 */
-      transform: none; /* 変形なし */
+      animation: none;
+      opacity: 1;
+      transform: none;
     }
 
     .contact-card:hover {
-      transform: none; /* ホバー時の動きを無効化 */
+      transform: none;
     }
 
     .contact-icon {
-      transition: none; /* トランジションを無効化 */
+      transition: none;
     }
   }
 </style>
