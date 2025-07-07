@@ -28,15 +28,16 @@ import SectionTitle from "./SectionTitle.astro";
 
   .requirements {
     margin-top: calc(var(--ratio) * 1rem);
+    width: auto;
   }
 
-  @media (width < 640px) {
+  @media (width < 1510px) {
     #index-join .read {
       margin-top: calc(var(--ratio) * 1rem);
     }
   }
 
-  @media (640px <= width) {
+  @media (1510px <= width) {
     .index-join-area {
       display: grid;
       grid-template-columns: 1fr 1fr;
