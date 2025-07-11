@@ -3,7 +3,9 @@ import { getCollection } from "astro:content";
 import LinkButton from "../components/LinkButton.astro";
 import BaseLayout from "./BaseLayout.astro";
 const allPosts = await getCollection("news");
-const years = [...new Set(allPosts.map((post: any) => post.data.year))].sort((a, b) => b - a);
+const years = [...new Set(allPosts.map((post: any) => post.data.year))].sort(
+  (a, b) => b - a
+);
 ---
 
 <BaseLayout
@@ -15,7 +17,11 @@ const years = [...new Set(allPosts.map((post: any) => post.data.year))].sort((a,
       <details id="yearDetails">
         <summary>年度別リンク</summary>
         <div class="year-link-area">
-          {years.map((year) => <LinkButton href={`/news/${year}/`}>{year}年度</LinkButton>)}
+          {
+            years.map((year) => (
+              <LinkButton href={`/news/${year}/`}>{year}年度</LinkButton>
+            ))
+          }
         </div>
       </details>
     </aside>
@@ -71,6 +77,7 @@ const years = [...new Set(allPosts.map((post: any) => post.data.year))].sort((a,
 
   .articles {
     background-color: rgb(var(--white));
+    width: 100%;
 
     @media (width < 640px) {
       padding: 1rem;
