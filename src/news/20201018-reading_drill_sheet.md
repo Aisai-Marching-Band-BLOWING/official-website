@@ -4,6 +4,6 @@ pubDate: 2020-10-18
 year: "2020"
 ---
 
-![練習の様子](@/assets/20200920-weekly_practice_begins.webp)
+![練習の様子](@/assets/20201018-reading_drill_sheet.webp)
 
 本日のBLOWINGの練習は今度のお披露目会に演奏する曲の三曲目をコンテ読みをしました。若手の団員のY君が作ってくれた素敵なコンテです。
