@@ -8,9 +8,7 @@ import SectionTitle from "./SectionTitle.astro";
 <section id="about" class="root">
   <SectionTitle title="BLOWINGとは" subtitle="ABOUT" class="title" />
 
-  <div class="photo">
-    <Image src={photo} alt="BLOWINGの活動風景" class="photo-img" />
-  </div>
+  <Image src={photo} alt="BLOWINGの活動風景" class="photo" />
 
   <div class="lead">
     <p>
@@ -43,9 +41,6 @@ import SectionTitle from "./SectionTitle.astro";
     .photo {
       grid-column: 2 / 3;
       grid-row: 1 / 3;
-    }
-
-    .photo-img {
       height: 100%;
       object-fit: cover;
     }
