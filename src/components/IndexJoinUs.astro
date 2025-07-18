@@ -1,5 +1,5 @@
 ---
-import ApplicationRequirements from "@/components/ApplicationRequirements.astro";
+import ApplicationRequirements from "./ApplicationRequirements.astro";
 import LinkButton from "./LinkButton.astro";
 import SectionTitle from "./SectionTitle.astro";
 ---
@@ -8,8 +8,8 @@ import SectionTitle from "./SectionTitle.astro";
   <SectionTitle title="メンバー募集" subtitle="JOIN US" />
 
   <div class="index-join-area">
-    <div class="requirements"><ApplicationRequirements /></div>
-    <div class="read">
+    <ApplicationRequirements />
+    <div class="lead">
       <h3>一緒に演奏・マーチングをしてくれる仲間を大募集しています！</h3>
       <p>
         まだまだ未知数なバンドですが、将来的には様々な活動を行い、メンバー一人一人が輝ける場所を提供していきたいです。<br
@@ -21,37 +21,11 @@ import SectionTitle from "./SectionTitle.astro";
 </section>
 
 <style>
-  .ttl span {
-    margin-left: 1rem;
-    font-weight: bold;
-  }
-
-  .requirements {
+  .index-join-area {
     margin-top: calc(var(--ratio) * 1rem);
-    width: auto;
-  }
-
-  @media (width < 1510px) {
-    #index-join .read {
-      margin-top: calc(var(--ratio) * 1rem);
-    }
-  }
-
-  @media (1510px <= width) {
-    .index-join-area {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-    }
-
-    .requirements {
-      grid-column: 1 / 2;
-    }
-    .read {
-      grid-column: 2 / 3;
-      padding-left: 2rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(30rem, max-content));
+    justify-content: center;
+    gap: calc(var(--ratio) * 1rem);
   }
 </style>
