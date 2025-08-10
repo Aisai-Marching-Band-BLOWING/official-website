@@ -3,16 +3,26 @@ import NewsArticle from "@/components/NewsArticle.astro";
 import NewsLayout from "@/layouts/NewsLayout.astro";
 import { getCollection, render } from "astro:content";
 
-const rawPosts = await getCollection("news");
-const posts = await Promise.all(
-  rawPosts.map(async (post) => {
-    const { Content } = await render(post);
-    return { ...post, Content };
-  })
-);
-posts.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
+export async function getStaticPaths({ paginate }) {
+  const rawPosts = await getCollection("news");
+  const sortedRawPosts = rawPosts.sort(
+    (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+  );
+  const posts = await Promise.all(
+    sortedRawPosts.map(async (post) => {
+      const { Content } = await render(post);
+      return { ...post, Content };
+    })
+  );
+
+  const pageSize = 5;
+  return paginate(posts, { pageSize });
+}
+
+// paginateから渡された現在のページ情報を受け取る
+const { page } = Astro.props;
 ---
 
 <NewsLayout description="Aisai Marching Band BLOWINGの最新情報をお届けします。">
-  {posts.map((post) => <NewsArticle post={post} />)}
+  {page.data.map((post) => <NewsArticle post={post} />)}
 </NewsLayout>
