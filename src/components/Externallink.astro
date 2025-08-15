@@ -1,5 +1,7 @@
 ---
-const { href, ...props } = Astro.props;
+const { href, class: className, ...props } = Astro.props;
 ---
 
-<a href={href} target="_blank" rel="noopener noreferrer" {...props}><slot /></a>
+<a href={href} target="_blank" rel="noopener noreferrer" class:list={[className]} {...props}
+  ><slot /></a
+>

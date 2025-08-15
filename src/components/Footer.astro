@@ -1,9 +1,9 @@
 ---
 import FooterSocial from "./FooterSocial.astro";
-const { ...props } = Astro.props;
+const { class: className, ...props } = Astro.props;
 ---
 
-<footer {...props}>
+<footer class:list={[className]} {...props}>
   <section class="social">
     <FooterSocial platform="Facebook" />
     <FooterSocial platform="Instagram" />

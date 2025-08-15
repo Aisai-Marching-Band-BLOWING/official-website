@@ -1,10 +1,10 @@
 ---
 import NavHamburgermenu from "./NavHamburgermenu.astro";
 import NavLogo from "./NavLogo.astro";
-const { ...props } = Astro.props;
+const { class: className, ...props } = Astro.props;
 ---
 
-<nav {...props}>
+<nav class:list={[className]} {...props}>
   <NavLogo />
   <NavHamburgermenu />
 </nav>

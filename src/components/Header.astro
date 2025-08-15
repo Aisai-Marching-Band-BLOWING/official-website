@@ -2,10 +2,10 @@
 import heroImageSrc from "@/assets/hero.webp";
 import { getImage } from "astro:assets";
 const heroImage = await getImage({ src: heroImageSrc });
-const { pageTitle, ...props } = Astro.props;
+const { pageTitle, class: className, ...props } = Astro.props;
 ---
 
-<header {...props}>
+<header class:list={[className]} {...props}>
   <h1>{pageTitle}</h1>
 </header>
 
