@@ -5,7 +5,7 @@ import IconInstagram from "./IconInstagram.astro";
 import IconX from "./IconX.astro";
 import IconYoutube from "./IconYoutube.astro";
 
-const { platform, ...props } = Astro.props;
+const { platform } = Astro.props;
 const { href, Icon } = (() => {
   switch (platform) {
     case "Facebook":
