@@ -69,8 +69,8 @@ npm run build
 
 ## ライセンス
 
-articles, photos, logo: Aisai Marching Band BLOWING\
-software: MIT license
+articles, photos, logo: &copy; 2025 Aisai Marching Band BLOWING\
+software: MIT License
 
 ## Astro Starter Kit: Minimal
 
