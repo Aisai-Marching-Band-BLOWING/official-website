@@ -1,4 +1,79 @@
-# Astro Starter Kit: Minimal
+# Aisai Marching Band BLOWING 公式Webサイト
+
+<div align="center">
+  <br>
+  <img src="" alt="公式Webサイト トップページのスクリーンショット" width="50%">
+  <br>
+  <p>
+    Aisai Marching Band BLOWINGは、愛西市を拠点に音楽が楽しめるマーチングバンドです。<br>
+    地域に愛されるバンドをめざして、小学5年生から社会人まで楽しく活動しています。
+  </p>
+</div>
+
+## サイト概要
+
+<http://aisaimb.netlify.app/>
+
+Aisai Marching Band BLOWINGの公式Webサイトです。Astroフレームワークを用いて構築されており、バンドの活動紹介、ニュース、イベント情報、入団案内などを掲載しています。
+
+| スマホ画面 | PC・タブレット画面 |
+| - | - |
+| aaa | aaa |
+
+## 主なディレクトリ構成
+
+```text
+/
+├── src/
+│   ├── assets/         # ウェブサイトで使用する画像
+│   ├── components/     # Astroコンポーネント群
+│   ├── layouts/        # レイアウト用コンポーネント
+│   ├── news/           # ニュース記事（Markdown形式）
+│   └── pages/          # 各ページ（Astro形式）
+└── package.json
+```
+
+## 開発・ビルド方法
+
+1. 依存パッケージのインストール
+
+```bash
+npm install
+```
+
+2. 開発サーバー起動
+
+```bash
+npm run dev
+```
+
+<http://localhost:4321>で確認できます。
+
+3. 本番ビルド
+
+```bash
+npm run build
+```
+
+`./dist/`にビルドしたサイトが追加されます。
+
+## 使用技術
+
+| 種類 | 内容 |
+| - | - |
+| フロントエンド | Astro, TypeScript, Markdown, Bootstrap Icons |
+| バックエンド | なし |
+| データベース | なし |
+| コード管理 |  Git, GitHub |
+| デプロイ | Netlify |
+| その他 | Visual Studio Code |
+
+## ライセンス
+
+articles, photos, logo: Aisai Marching Band BLOWING\
+software: MIT license
+
+## Astro Starter Kit: Minimal
 
 ```sh
 npm create astro@latest -- --template minimal
@@ -10,7 +85,7 @@ npm create astro@latest -- --template minimal
 
 > 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
-## 🚀 Project Structure
+### 🚀 Project Structure
 
 Inside of your Astro project, you'll see the following folders and files:
 
@@ -29,7 +104,7 @@ There's nothing special about `src/components/`, but that's where we like to put
 
 Any static assets, like images, can be placed in the `public/` directory.
 
-## 🧞 Commands
+### 🧞 Commands
 
 All commands are run from the root of the project, from a terminal:
 
@@ -42,6 +117,6 @@ All commands are run from the root of the project, from a terminal:
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
 
-## 👀 Want to learn more?
+### 👀 Want to learn more?
 
 Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
