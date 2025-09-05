@@ -1,9 +1,7 @@
 # Aisai Marching Band BLOWING 公式Webサイト
 
 <div align="center">
-  <br>
-  <img src="" alt="公式Webサイト トップページのスクリーンショット" width="50%">
-  <br>
+  <img src="https://github.com/user-attachments/assets/e885afd3-ce61-4dee-b7e0-f41e3a8035fe" alt="公式Webサイト トップページのスクリーンショット" width="30%">
   <p>
     Aisai Marching Band BLOWINGは、愛西市を拠点に音楽が楽しめるマーチングバンドです。<br>
     地域に愛されるバンドをめざして、小学5年生から社会人まで楽しく活動しています。
@@ -14,11 +12,12 @@
 
 <http://aisaimb.netlify.app/>
 
-Aisai Marching Band BLOWINGの公式Webサイトです。Astroフレームワークを用いて構築されており、バンドの活動紹介、ニュース、イベント情報、入団案内などを掲載しています。
+Aisai Marching Band BLOWINGの公式Webサイトです。\
+Astroフレームワークを用いて構築されており、バンドの活動紹介、ニュース、イベント情報、入団案内などを掲載しています。
 
 | スマホ画面 | PC・タブレット画面 |
 | - | - |
-| aaa | aaa |
+| <img width="1082" height="2402" alt="aisaimb.netlify.appのスクリーンショット(Pixel 7)" src="https://github.com/user-attachments/assets/19fc7305-80c6-4e8e-ad90-54f7e1028d77" /> | <img width="2048" height="1536" alt="aisaimb.netlify.appのスクリーンショット(iPad Mini)" src="https://github.com/user-attachments/assets/6f777a19-3115-405e-9418-cd8329fad2e8" /> |
 
 ## 主なディレクトリ構成
 
