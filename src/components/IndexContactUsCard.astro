@@ -1,0 +1,192 @@
+---
+import Externallink from "./Externallink.astro";
+import IconArrowUpRight from "./IconArrowUpRight.astro";
+import IconFacebook from "./IconFacebook.astro";
+import IconInstagram from "./IconInstagram.astro";
+import IconX from "./IconX.astro";
+import IconYoutube from "./IconYoutube.astro";
+
+const { platform } = Astro.props;
+const { href, Icon } = (() => {
+  switch (platform) {
+    case "Facebook":
+      return { href: "https://facebook.com/aisaimb", Icon: IconFacebook };
+    case "Instagram":
+      return { href: "https://instagram.com/aisaimb", Icon: IconInstagram };
+    case "X":
+      return { href: "https://x.com/aisai_mb", Icon: IconX };
+    case "YouTube":
+      return { href: "https://youtube.com/@aisaimb", Icon: IconYoutube };
+    default:
+      return { href: "", Icon: "" };
+  }
+})();
+---
+
+<Externallink href={href} class="card">
+  <div class="icon">
+    <Icon size="2rem" color="rgb(var(--black))" />
+  </div>
+  <div class="content">
+    <h3 class="type">{platform}</h3>
+    <div class="value">
+      @aisaimb
+      <IconArrowUpRight size="1.5rem" color="rgb(var(--brand-color))" class="arrow" />
+    </div>
+  </div>
+</Externallink>
+
+<style>
+  .card {
+    display: flex;
+    gap: 1.5rem;
+    position: relative;
+    background: rgb(var(--white));
+    border: 1px solid rgba(var(--gray2), 0.3);
+    border-radius: 16px;
+    padding: 2rem;
+    overflow: hidden;
+    box-shadow:
+      0 4px 6px -1px rgba(0, 0, 0, 0.08),
+      0 2px 4px -1px rgba(0, 0, 0, 0.04),
+      inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* アクセントライン - 上部装飾 */
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, rgb(var(--brand-color)), rgb(var(--sub-color)));
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    &:hover,
+    &:focus {
+      box-shadow:
+        0 20px 25px -5px rgba(0, 0, 0, 0.12),
+        0 10px 10px -5px rgba(0, 0, 0, 0.06),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+
+      &::before {
+        transform: scaleX(1);
+      }
+    }
+
+    @media (width < 640px) {
+      padding: 0.75rem;
+      flex-direction: column;
+      gap: 0.5rem;
+      align-items: center;
+      text-align: center;
+    }
+  }
+
+  .icon {
+    width: 3.75rem;
+    height: 3.75rem;
+    display: grid;
+    place-content: center;
+    position: relative;
+    transition: all 0.4s ease;
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: -2px;
+      background: linear-gradient(135deg, rgb(var(--brand-color)), rgb(var(--sub-color)));
+      border-radius: 50%;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: -1;
+    }
+
+    &:where(.card:hover &, .card:focus &) {
+      transform: scale(1.1);
+
+      &::before {
+        opacity: 0.2;
+      }
+    }
+
+    @media (width < 640px) {
+      width: 2.8125rem;
+      height: 2.8125rem;
+    }
+  }
+
+  .content {
+    display: grid;
+    gap: 0.5rem;
+  }
+
+  .type {
+    font-size: 1.25rem;
+    font-weight: bold;
+    letter-spacing: -0.025em;
+
+    @media (width < 640px) {
+      font-size: 1rem;
+    }
+  }
+
+  .value {
+    line-height: 1.5;
+    color: rgb(var(--brand-color));
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+
+    &:where(.card:hover &, .card:focus &) {
+      color: rgb(var(--sub-color));
+    }
+
+    @media (width < 640px) {
+      font-size: 0.75rem;
+      gap: 0.25rem;
+    }
+  }
+
+  .arrow {
+    opacity: 0.8;
+    transition: all 0.3s ease;
+    border-radius: 50%;
+    padding: 0.25rem;
+
+    &:where(.card:hover &, .card:focus &) {
+      opacity: 1;
+      transform: translate(2px, -2px);
+      background: rgba(var(--sub-color), 0.15);
+      fill: rgb(var(--sub-color));
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .card {
+      transition: none;
+
+      &::before {
+        transition: none;
+      }
+    }
+
+    .icon {
+      transition: none;
+
+      &::before {
+        transition: none;
+      }
+    }
+
+    .value {
+      transition: none;
+    }
+  }
+</style>
