@@ -5,8 +5,9 @@ const { class: className, ...props } = Astro.props;
 
 <footer class:list={[className]} {...props}>
   <section class="social">
+    <FooterSocial platform="Instagram（Jr.）" />
+    <FooterSocial platform="Instagram（一般）" />
     <FooterSocial platform="Facebook" />
-    <FooterSocial platform="Instagram" />
     <FooterSocial platform="X" />
     <FooterSocial platform="YouTube" />
   </section>

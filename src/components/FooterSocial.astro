@@ -5,21 +5,10 @@ import IconInstagram from "./IconInstagram.astro";
 import IconX from "./IconX.astro";
 import IconYoutube from "./IconYoutube.astro";
 
+import { getSNSInfo } from "@/scripts/getSNSInfo.ts";
+
 const { platform } = Astro.props;
-const { href, Icon } = (() => {
-  switch (platform) {
-    case "Facebook":
-      return { href: "https://facebook.com/aisaimb", Icon: IconFacebook };
-    case "Instagram":
-      return { href: "https://instagram.com/aisaimb", Icon: IconInstagram };
-    case "X":
-      return { href: "https://x.com/aisai_mb", Icon: IconX };
-    case "YouTube":
-      return { href: "https://youtube.com/@aisaimb", Icon: IconYoutube };
-    default:
-      return { href: "", Icon: "" };
-  }
-})();
+const { href, Icon } = getSNSInfo(platform);
 ---
 
 <Externallink href={href} class="social-icon">
