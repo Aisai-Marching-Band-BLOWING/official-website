@@ -1,26 +1,11 @@
 ---
 import Externallink from "./Externallink.astro";
 import IconArrowUpRight from "./IconArrowUpRight.astro";
-import IconFacebook from "./IconFacebook.astro";
-import IconInstagram from "./IconInstagram.astro";
-import IconX from "./IconX.astro";
-import IconYoutube from "./IconYoutube.astro";
+
+import { getSNSInfo } from "@/scripts/getSNSInfo.ts";
 
 const { platform } = Astro.props;
-const { href, Icon } = (() => {
-  switch (platform) {
-    case "Facebook":
-      return { href: "https://facebook.com/aisaimb", Icon: IconFacebook };
-    case "Instagram":
-      return { href: "https://instagram.com/aisaimb", Icon: IconInstagram };
-    case "X":
-      return { href: "https://x.com/aisai_mb", Icon: IconX };
-    case "YouTube":
-      return { href: "https://youtube.com/@aisaimb", Icon: IconYoutube };
-    default:
-      return { href: "", Icon: "" };
-  }
-})();
+const { id, href, Icon } = getSNSInfo(platform);
 ---
 
 <Externallink href={href} class="card">
@@ -30,8 +15,11 @@ const { href, Icon } = (() => {
   <div class="content">
     <h3 class="type">{platform}</h3>
     <div class="value">
-      @aisaimb
-      <IconArrowUpRight size="1.5rem" color="rgb(var(--brand-color))" class="arrow" />
+      <span>@{id}</span><IconArrowUpRight
+        size="1.5rem"
+        color="rgb(var(--brand-color))"
+        class="arrow"
+      />
     </div>
   </div>
 </Externallink>
