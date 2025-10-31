@@ -128,13 +128,14 @@ h4 {
 a {
   color: rgb(var(--link-rgb));
   text-decoration: underline;
+
   &:hover {
     text-decoration: none;
   }
 }
 
 p {
-  line-height: 1.6;
+  line-height: 1.75;
   margin-top: 1rem;
 }
 
