@@ -6,7 +6,7 @@
   --sub-brand-rgb: 68, 154, 174;
   --red-rgb: 224, 54, 22;
   --black-rgb: 51, 51, 51;
-  --link-rgb: 0, 100, 255;
+  --link-rgb: var(--sub-brand-rgb);
   --gray1-rgb: 184, 184, 184;
   --gray2-rgb: 235, 235, 235;
   --gray3-rgb: 245, 245, 245;
