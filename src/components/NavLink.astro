@@ -41,8 +41,8 @@ const isCurrent = href === pathname || href === `/${subpath?.[0]}`;
       &:focus,
       &[aria-current="page"] {
         border-left: 8px solid rgb(var(--brand-rgb));
-        --shippo-bg-color: var(--gray3-rgb);
-        background-color: rgb(var(--shippo-bg-color));
+        --shippo-bg-rgb: var(--gray3-rgb);
+        background-color: rgb(var(--shippo-bg-rgb));
         background-image: var(--shippo-pattern-img);
         background-size: var(--shippo-pattern-size);
       }
