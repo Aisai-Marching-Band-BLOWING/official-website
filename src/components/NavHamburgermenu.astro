@@ -47,12 +47,12 @@ import NavLink from "./NavLink.astro";
       height: var(--nav-height);
       width: var(--nav-height);
       transition: all 0.4s;
-      background-color: rgb(var(--brand-color));
-      color: rgb(var(--white));
+      background-color: rgb(var(--brand-rgb));
+      color: rgb(var(--white-rgb));
 
       &:where(.nav-expanded &) {
-        background-color: rgb(var(--white));
-        color: rgb(var(--brand-color));
+        background-color: rgb(var(--white-rgb));
+        color: rgb(var(--brand-rgb));
       }
     }
 
@@ -73,10 +73,10 @@ import NavLink from "./NavLink.astro";
       width: 30px;
       margin: 5px 0;
       transition: all 0.4s;
-      background-color: rgb(var(--white));
+      background-color: rgb(var(--white-rgb));
 
       &:where(.nav-expanded &) {
-        background-color: rgb(var(--brand-color));
+        background-color: rgb(var(--brand-rgb));
 
         &:nth-child(1) {
           transform: translateY(7px) rotate(45deg);
@@ -98,7 +98,7 @@ import NavLink from "./NavLink.astro";
       top: var(--nav-height);
       left: 100%;
       transition: all 0.5s;
-      background-color: rgb(var(--shippo-bg-color));
+      background-color: rgb(var(--shippo-bg-rgb));
       background-image: var(--shippo-pattern-img);
       background-size: var(--shippo-pattern-size);
       overflow: auto;

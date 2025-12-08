@@ -20,10 +20,10 @@ year: "2022"
 
 <table>
   <tr>
-    <th>参加<span style="color: rgb(var(--red));">対象</span></th>
+    <th>参加<span style="color: rgb(var(--red-rgb));">対象</span></th>
     <td>
       中学生以上（経験者・初心者問いません）<br />
-      <span style="color: rgb(var(--red));">
+      <span style="color: rgb(var(--red-rgb));">
         ・愛西市及び近郊に在住・在学でマーチングに興味のある方<br />
         ・1年間を通して活動に参加できる方<br />
         ※楽器等の貸与についてはご相談ください。
