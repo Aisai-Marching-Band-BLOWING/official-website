@@ -10,14 +10,14 @@ const { id, href, Icon } = getSNSInfo(platform);
 
 <Externallink href={href} class="card">
   <div class="icon">
-    <Icon size="2rem" color="rgb(var(--black))" />
+    <Icon size="2rem" color="rgb(var(--black-rgb))" />
   </div>
   <div class="content">
     <h3 class="type">{platform}</h3>
     <div class="value">
       <span>@{id}</span><IconArrowUpRight
         size="1.5rem"
-        color="rgb(var(--brand-color))"
+        color="rgb(var(--brand-rgb))"
         class="arrow"
       />
     </div>
@@ -29,8 +29,8 @@ const { id, href, Icon } = getSNSInfo(platform);
     display: flex;
     gap: 1.5rem;
     position: relative;
-    background: rgb(var(--white));
-    border: 1px solid rgba(var(--gray2), 0.3);
+    background: rgb(var(--white-rgb));
+    border: 1px solid rgba(var(--gray2-rgb), 0.3);
     border-radius: 16px;
     padding: 2rem;
     overflow: hidden;
@@ -50,7 +50,7 @@ const { id, href, Icon } = getSNSInfo(platform);
       left: 0;
       right: 0;
       height: 3px;
-      background: linear-gradient(90deg, rgb(var(--brand-color)), rgb(var(--sub-color)));
+      background: linear-gradient(90deg, rgb(var(--brand-rgb)), rgb(var(--sub-brand-rgb)));
       transform: scaleX(0);
       transition: transform 0.3s ease;
     }
@@ -88,7 +88,7 @@ const { id, href, Icon } = getSNSInfo(platform);
       content: "";
       position: absolute;
       inset: -2px;
-      background: linear-gradient(135deg, rgb(var(--brand-color)), rgb(var(--sub-color)));
+      background: linear-gradient(135deg, rgb(var(--brand-rgb)), rgb(var(--sub-brand-rgb)));
       border-radius: 50%;
       opacity: 0;
       transition: opacity 0.3s ease;
@@ -126,14 +126,14 @@ const { id, href, Icon } = getSNSInfo(platform);
 
   .value {
     line-height: 1.5;
-    color: rgb(var(--brand-color));
+    color: rgb(var(--brand-rgb));
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
     transition: all 0.3s ease;
 
     &:where(.card:hover &, .card:focus &) {
-      color: rgb(var(--sub-color));
+      color: rgb(var(--sub-brand-rgb));
     }
 
     @media (width < 640px) {
@@ -152,8 +152,8 @@ const { id, href, Icon } = getSNSInfo(platform);
     &:where(.card:hover &, .card:focus &) {
       opacity: 1;
       transform: translate(2px, -2px);
-      background: rgba(var(--sub-color), 0.15);
-      fill: rgb(var(--sub-color));
+      background: rgba(var(--sub-brand-rgb), 0.15);
+      fill: rgb(var(--sub-brand-rgb));
     }
   }
 

@@ -45,7 +45,7 @@ year: "2023"
   <tr>
     <th>参加対象</th>
     <td>
-      <span style="color: rgb(var(--red))">小学5年生</span>以上（経験者・初心者問いません）<br />
+      <span style="color: rgb(var(--red-rgb))">小学5年生</span>以上（経験者・初心者問いません）<br />
       ・愛西市及び近郊に在住・在学でマーチングに興味のある方<br />
       ・1年間を通して活動に参加できる方<br />
       ※楽器等の貸与についてはご相談ください。
@@ -54,20 +54,20 @@ year: "2023"
   <tr>
     <th>練習日時</th>
     <td>
-      <span style="color: rgb(var(--red))">原則、</span>毎週日曜日　<span style="color: rgb(var(--red))">9:00～18:00</span><br />
-      <span style="color: rgb(var(--red))">不定期で土曜日、祝日の練習あり</span>
+      <span style="color: rgb(var(--red-rgb))">原則、</span>毎週日曜日　<span style="color: rgb(var(--red-rgb))">9:00～18:00</span><br />
+      <span style="color: rgb(var(--red-rgb))">不定期で土曜日、祝日の練習あり</span>
     </td>
   </tr>
   <tr>
     <th>練習場所</th>
     <td>
-      <span style="color: rgb(var(--red))">主に愛西市を中心とした小学校・スポーツセンターなど</span>
+      <span style="color: rgb(var(--red-rgb))">主に愛西市を中心とした小学校・スポーツセンターなど</span>
     </td>
   </tr>
   <tr>
     <th>参加費用</th>
     <td>
-      <span style="color: rgb(var(--red))">
+      <span style="color: rgb(var(--red-rgb))">
         学生：月額3000円<br />
         社会人・一般：月額4000円
       </span>

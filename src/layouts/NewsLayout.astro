@@ -35,7 +35,7 @@ const years = [...new Set(allPosts.map((post: any) => post.data.year))].sort(
 
 <style>
   .root {
-    --shippo-bg-color: var(--gray3);
+    --shippo-bg-color: var(--gray3-rgb);
     background-color: rgb(var(--shippo-bg-color));
     background-image: var(--shippo-pattern-img);
     background-size: var(--shippo-pattern-size);
@@ -50,7 +50,7 @@ const years = [...new Set(allPosts.map((post: any) => post.data.year))].sort(
   }
 
   aside {
-    background-color: rgb(var(--white));
+    background-color: rgb(var(--white-rgb));
 
     @media (width < 640px) {
       padding: 1rem;
@@ -77,7 +77,7 @@ const years = [...new Set(allPosts.map((post: any) => post.data.year))].sort(
   }
 
   .articles {
-    background-color: rgb(var(--white));
+    background-color: rgb(var(--white-rgb));
     width: 100%;
 
     @media (width < 640px) {
