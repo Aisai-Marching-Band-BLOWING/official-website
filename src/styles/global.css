@@ -85,11 +85,13 @@ h3 {
 }
 
 h3:not(:first-child),
-h4:not(:first-child) {
+h4:not(:first-child),
+h5:not(:first-child) {
   margin-top: calc(var(--ratio) * 1rem);
 }
 
-h4 {
+h4,
+h5 {
   font-size: 1rem;
 }
 
