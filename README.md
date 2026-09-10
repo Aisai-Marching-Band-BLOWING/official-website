@@ -1,5 +1,7 @@
 # Aisai Marching Band BLOWING 公式Webサイト
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/975ee2c7-8495-4e02-95b8-73f49c94598c/deploy-status)](https://app.netlify.com/projects/aisaimb/deploys)
+
 <div align="center">
   <img src="https://github.com/user-attachments/assets/e885afd3-ce61-4dee-b7e0-f41e3a8035fe" alt="公式Webサイト トップページのスクリーンショット" width="30%">
   <p>
