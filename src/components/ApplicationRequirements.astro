@@ -1,54 +1,105 @@
-<table>
-  <tr>
-    <th>参加対象</th>
-    <td>
-      小学5年生以上（経験者・初心者問いません）<br />
-      <ul>
-        <li>愛西市及び近郊に在住・在学でマーチングに興味のある方</li>
-        <li>1年間を通して活動に参加できる方</li>
-      </ul>
-      <small>※楽器等の貸与についてはご相談ください。</small>
-    </td>
-  </tr>
-  <tr>
-    <th>練習日時</th>
-    <td>
-      原則、毎週日曜日　9:00～18:00<br />
-      <small>不定期で土曜日、祝日の練習あり</small>
-    </td>
-  </tr>
-  <tr>
-    <th>練習場所</th>
-    <td>主に愛西市を中心とした小学校・スポーツセンターなど</td>
-  </tr>
-  <tr>
-    <th>参加費用</th>
-    <td>
-      小中学生：月額3,000円<br />
-      高校生以上：月額6,000円
-    </td>
-  </tr>
+<table class="requirements-table">
+  <tbody>
+    <tr>
+      <th scope="row">参加対象</th>
+      <td>
+        小学5年生以上（経験者・初心者問いません）
+        <ul>
+          <li>愛西市及び近郊に在住・在学でマーチングに興味のある方</li>
+          <li>1年間を通して活動に参加できる方</li>
+        </ul>
+        <small>※楽器等の貸与についてはご相談ください。</small>
+      </td>
+    </tr>
+
+    <tr>
+      <th scope="row">練習日時・場所</th>
+      <td>
+        <dl class="schedule-list">
+          <dt>Jr.</dt>
+          <dd>
+            ▶ 木曜日　18:00〜21:00<br />
+            座奏中心<br />
+            活動場所　公民館やコミュニティセンター<br />
+            ▶ 日曜日　13:00〜18:00<br />
+            マーチング中心<br />
+            活動場所　愛西市小中学校体育館
+            <small>（大会シーズンや演奏会が入ると変更する場合があります）</small>
+          </dd>
+
+          <dt>一般</dt>
+          <dd>
+            原則、毎週日曜日　9:00～18:00
+            <small>不定期で土曜日、祝日の練習あり</small>
+            主に愛西市を中心とした小学校・スポーツセンターなど
+          </dd>
+        </dl>
+      </td>
+    </tr>
+
+    <tr>
+      <th scope="row">参加費用</th>
+      <td>
+        小中学生：月額3,000円<br />
+        高校生以上：月額6,000円
+      </td>
+    </tr>
+  </tbody>
 </table>
 
 <style>
-  th,
-  td {
-    border-color: rgb(var(--brand-rgb));
+  .requirements-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
   }
 
-  th {
+  .requirements-table th,
+  .requirements-table td {
+    border: 1px solid rgb(var(--brand-rgb));
+    padding: 0.9rem 1rem;
+    vertical-align: top;
+    text-align: left;
+  }
+
+  .requirements-table th {
+    width: 13rem;
     background-color: rgb(var(--light-brand-rgb));
+    font-weight: 700;
   }
 
-  td {
+  .requirements-table td {
     background-color: rgb(var(--white-rgb));
   }
 
-  ul {
+  .requirements-table ul {
+    margin: 0.5rem 0;
     padding-left: 1.5rem;
+    line-height: 1.7;
   }
 
-  small {
+  .schedule-list {
+    margin: 0;
+    line-height: 1.75;
+  }
+
+  .schedule-list dt {
+    margin-top: 0.75rem;
+    font-weight: 700;
+    color: rgb(var(--brand-rgb));
+  }
+
+  .schedule-list dt:first-child {
+    margin-top: 0;
+  }
+
+  .schedule-list dd {
+    margin: 0.25rem 0 0;
+  }
+
+  .requirements-table small {
+    display: block;
+    margin-top: 0.25rem;
     color: rgb(var(--sub-brand-rgb));
   }
 </style>
