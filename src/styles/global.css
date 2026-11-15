@@ -12,6 +12,7 @@
   --color-gray3: rgb(245 245 245);
   --color-white: rgb(255 255 255);
 
+  /* 後方互換および --shippo-bg-rgb 用（新規スタイルは上の --color-* を使用） */
   --brand-rgb: 159, 22, 106;
   --light-brand-rgb: 248, 201, 230;
   --sub-brand-rgb: 68, 154, 174;
@@ -25,8 +26,9 @@
 
   --shippo-radius: 40px;
   --shippo-width: 0.6px;
+  /* 七宝模様背景コンポーネントから上書きされるRGBトークン */
   --shippo-bg-rgb: var(--brand-rgb);
-  --shippo-circle-color: color-mix(in srgb, var(--color-white) 50%, transparent);
+  --shippo-circle-color: color-mix(in oklab, var(--color-white) 50%, transparent);
   --shippo-pattern-img: radial-gradient(circle at top left,
       transparent calc(var(--shippo-radius) - var(--shippo-width)),
       var(--shippo-circle-color) var(--shippo-radius),
@@ -73,10 +75,16 @@
 @layer reset {
   :where(
     html, body, main, header, footer, nav, section, article, aside, address,
-    div, p, h1, h2, h3, h4, h5, h6, ul, ol, li, dl, dt, dd,
-    table, th, td, a, button, input, textarea, select, img, iframe, details, summary
+    div, span, p, h1, h2, h3, h4, h5, h6, ul, ol, li, dl, dt, dd,
+    figure, blockquote, table, th, td, form, fieldset, legend, label,
+    a, button, input, textarea, select, details, summary, dialog,
+    img, svg, picture, video, iframe
   ) {
-    box-sizing: border-box;
+    &,
+    &::before,
+    &::after {
+      box-sizing: border-box;
+    }
   }
 
   :where(
@@ -198,16 +206,16 @@
       padding: 4rem 10%;
     }
   }
+}
 
-  @media (width < 640px) {
-    .only-l {
-      display: none;
-    }
+@media (width < 640px) {
+  .only-l {
+    display: none;
   }
+}
 
-  @media (640px <=width) {
-    .only-s {
-      display: none;
-    }
+@media (640px <=width) {
+  .only-s {
+    display: none;
   }
 }
