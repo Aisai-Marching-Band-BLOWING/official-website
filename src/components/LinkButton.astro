@@ -15,9 +15,9 @@ const { href, backgroundRGB, ...props } = Astro.props;
     align-items: center;
 
     &:hover,
-    &:focus {
-      --shippo-bg-rgb: rgb(var(--backgroundRGB, var(--brand-rgb)));
-      background-color: var(--shippo-bg-rgb);
+    &:focus-visible {
+      --shippo-bg-rgb: var(--backgroundRGB, var(--brand-rgb));
+      background-color: rgb(var(--shippo-bg-rgb));
       background-image: var(--shippo-pattern-img);
       background-size: var(--shippo-pattern-size);
     }

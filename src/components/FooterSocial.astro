@@ -7,14 +7,14 @@ const { platform } = Astro.props;
 const { href, Icon } = getSNSInfo(platform);
 ---
 
-<Externallink href={href} class="social-icon">
+<Externallink href={href} class="social-icon" aria-label={platform}>
   <Icon size="2rem" color="rgb(var(--white-rgb))" />
 </Externallink>
 
 <style>
   .social-icon {
     &:hover,
-    &:focus {
+    &:focus-visible {
       opacity: 0.6;
     }
   }
