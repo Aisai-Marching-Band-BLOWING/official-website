@@ -68,10 +68,16 @@ import NavLink from "./NavLink.astro";
       width: 30px;
       margin: 5px 0;
       transition:
-        transform 0.4s,
         opacity 0.4s,
         background-color 0.4s;
       background-color: rgb(var(--white-rgb));
+
+      @media (prefers-reduced-motion: no-preference) {
+        transition:
+          transform 0.4s,
+          opacity 0.4s,
+          background-color 0.4s;
+      }
 
       &:where(.nav-expanded &) {
         background-color: rgb(var(--brand-rgb));
@@ -91,19 +97,27 @@ import NavLink from "./NavLink.astro";
     }
 
     .menu {
-      height: 100%;
+      height: calc(100dvh - var(--nav-height));
       position: fixed;
       top: var(--nav-height);
       right: 0;
       translate: 100% 0;
-      transition: translate 0.5s;
+      visibility: hidden;
       background-color: rgb(var(--shippo-bg-rgb));
       background-image: var(--shippo-pattern-img);
       background-size: var(--shippo-pattern-size);
       overflow: auto;
 
+      @media (prefers-reduced-motion: no-preference) {
+        transition:
+          translate 0.5s,
+          visibility 0.5s;
+        transition-behavior: allow-discrete;
+      }
+
       &:where(.nav-expanded &) {
         translate: 0 0;
+        visibility: visible;
       }
 
       @media (width < 640px) {
