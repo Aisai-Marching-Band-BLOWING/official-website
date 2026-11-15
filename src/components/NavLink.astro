@@ -5,13 +5,15 @@ const subpath = pathname.match(/[^\/]+/g);
 const isCurrent = href === pathname || href === `/${subpath?.[0]}`;
 ---
 
-<a href={href} aria-current={isCurrent ? "page" : "false"}><slot /></a>
+<a href={href} aria-current={isCurrent ? "page" : undefined}><slot /></a>
 
 <style>
   a {
     display: block;
     font-weight: bold;
-    transition: all 0.4s;
+    transition:
+      border-color 0.4s,
+      background-color 0.4s;
     text-decoration: none;
     color: inherit;
 
@@ -19,6 +21,14 @@ const isCurrent = href === pathname || href === `/${subpath?.[0]}`;
       padding: 1rem 4rem 1rem 1rem;
       position: relative;
       background-color: rgba(var(--white-rgb), 0.85);
+      border-left: 8px solid rgba(var(--brand-rgb), 0);
+
+      &:hover,
+      &:focus-visible,
+      &[aria-current="page"] {
+        border-left: 8px solid rgb(var(--brand-rgb));
+        background-color: rgb(var(--white-rgb));
+      }
 
       &::before {
         content: "";
@@ -38,7 +48,7 @@ const isCurrent = href === pathname || href === `/${subpath?.[0]}`;
       border-left: 8px solid rgba(var(--brand-rgb), 0);
 
       &:hover,
-      &:focus,
+      &:focus-visible,
       &[aria-current="page"] {
         border-left: 8px solid rgb(var(--brand-rgb));
         --shippo-bg-rgb: var(--gray3-rgb);
