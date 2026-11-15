@@ -1,11 +1,11 @@
-const mediaQuery = window.matchMedia("(min-width: 640px)");
+const mediaQuery = window.matchMedia("(640px <= width)");
+const details = document.getElementById("yearDetails");
 
-function setDetailsOpen(e: MediaQueryList | MediaQueryListEvent) {
-  const details = document.getElementById("yearDetails");
-  if (details instanceof HTMLDetailsElement) {
+if (details instanceof HTMLDetailsElement) {
+  const setDetailsOpen = (e: MediaQueryList | MediaQueryListEvent) => {
     details.open = e.matches;
-  }
-}
+  };
 
-setDetailsOpen(mediaQuery);
-mediaQuery.addEventListener("change", setDetailsOpen);
+  setDetailsOpen(mediaQuery);
+  mediaQuery.addEventListener("change", setDetailsOpen);
+}
