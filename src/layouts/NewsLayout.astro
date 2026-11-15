@@ -12,7 +12,7 @@ const years = [...new Set(allPosts.map((post: any) => post.data.year))].sort((a,
 >
   <section class="root">
     <aside>
-      <details id="yearDetails">
+      <details id="yearDetails" open>
         <summary>年度別リンク</summary>
         <div class="year-link-area">
           {years.map((year) => <LinkButton href={`/news/${year}/`}>{year}年度</LinkButton>)}
@@ -24,7 +24,7 @@ const years = [...new Set(allPosts.map((post: any) => post.data.year))].sort((a,
 </BaseLayout>
 
 <script>
-  import "@/scripts/yearDetails.js";
+  import "@/scripts/yearDetails.ts";
 </script>
 
 <style>

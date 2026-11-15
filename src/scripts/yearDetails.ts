@@ -1,9 +1,11 @@
-function setDetailsOpen() {
-  const details = document.getElementById("yearDetails");
-  if (details instanceof HTMLDetailsElement) {
-    details.open = window.innerWidth >= 640;
-  }
-}
+const mediaQuery = window.matchMedia("(640px <= width)");
+const details = document.getElementById("yearDetails");
 
-setDetailsOpen();
-window.addEventListener("resize", setDetailsOpen);
+if (details instanceof HTMLDetailsElement) {
+  const setDetailsOpen = (e: MediaQueryList | MediaQueryListEvent) => {
+    details.open = e.matches;
+  };
+
+  setDetailsOpen(mediaQuery);
+  mediaQuery.addEventListener("change", setDetailsOpen);
+}
