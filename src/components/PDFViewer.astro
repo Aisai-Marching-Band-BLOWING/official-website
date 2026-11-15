@@ -1,4 +1,9 @@
 ---
+interface Props {
+  fileId: string;
+  title?: string;
+}
+
 const { fileId, title = "PDFドキュメント" } = Astro.props;
 ---
 
@@ -6,10 +11,7 @@ const { fileId, title = "PDFドキュメント" } = Astro.props;
   class="pdf-viewer"
   title={title}
   loading="lazy"
-  src={`https://drive.google.com/file/d/${fileId}/preview`}>
-  <a class="link-btn"
-  href={`https://drive.google.com/file/d/${fileId}/view?usp=sharing`}>PDFを開く</a>
-</iframe>
+  src={`https://drive.google.com/file/d/${fileId}/preview`}></iframe>
 
 <style>
   .pdf-viewer {

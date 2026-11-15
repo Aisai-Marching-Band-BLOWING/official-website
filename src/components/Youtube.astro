@@ -1,11 +1,17 @@
 ---
-const { id, style } = Astro.props;
+interface Props {
+  id: string;
+  title?: string;
+  style?: Record<string, string | number>;
+}
+
+const { id, title = "YouTube動画プレーヤー", style } = Astro.props;
 const src = `https://www.youtube.com/embed/${id}`;
 ---
 
 <iframe
   src={src}
-  title="YouTube video player"
+  title={title}
   loading="lazy"
   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
   referrerpolicy="strict-origin-when-cross-origin"
