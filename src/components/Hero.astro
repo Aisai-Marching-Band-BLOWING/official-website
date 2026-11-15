@@ -9,7 +9,7 @@ const { class: className, ...props } = Astro.props;
   <h1 class="slogan">
     地域に愛される<br />マーチングバンドを<br class="only-s" />目指して
   </h1>
-  <span class="scroll-arrow">SCROLL</span>
+  <span class="scroll-arrow" aria-hidden="true">SCROLL</span>
 </header>
 
 <style define:vars={{ heroImage: `url(${heroImage.src})` }}>
@@ -19,6 +19,7 @@ const { class: className, ...props } = Astro.props;
     background-size: cover;
     background-position: center center;
     color: rgb(var(--white-rgb));
+    container-type: inline-size;
 
     @media (width < 640px) {
       padding: 5rem 1.5rem;
@@ -37,15 +38,15 @@ const { class: className, ...props } = Astro.props;
 
   .slogan {
     @media (width < 640px) {
-      font-size: 9.3vw;
+      font-size: clamp(1.5rem, 0.25rem + 8vw, 3.25rem);
     }
 
     @media (640px <= width < 960px) {
-      font-size: 5.1vw;
+      font-size: clamp(1.75rem, 0.5rem + 4.2vw, 3.25rem);
     }
 
     @media (960px <= width) {
-      font-size: 4.55vw;
+      font-size: clamp(2rem, 0.5rem + 6cqi, 4.5rem);
     }
   }
 
@@ -67,7 +68,10 @@ const { class: className, ...props } = Astro.props;
       width: 1px;
       height: 7rem;
       background: rgb(var(--white-rgb));
-      animation: sdl 1.5s cubic-bezier(1, 0, 0, 1) infinite;
+
+      @media (prefers-reduced-motion: no-preference) {
+        animation: sdl 1.5s cubic-bezier(1, 0, 0, 1) infinite;
+      }
     }
 
     @media (width < 640px) {
