@@ -1,11 +1,14 @@
 ---
+import heroImageSrc from "@/assets/hero.webp";
 import Footer from "@/components/Footer.astro";
 import Header from "@/components/Header.astro";
 import Hero from "@/components/Hero.astro";
 import Meta from "@/components/Meta.astro";
 import Nav from "@/components/Nav.astro";
 import "@/styles/global.css";
+import { getImage } from "astro:assets";
 
+const heroImage = await getImage({ src: heroImageSrc });
 const { pageTitle, description } = Astro.props;
 const siteTitle = "Aisai Marching Band BLOWING";
 const isTopPage = Astro.url.pathname === "/";
@@ -15,6 +18,7 @@ const isTopPage = Astro.url.pathname === "/";
 <html prefix="og: http://ogp.me/ns#" lang="ja">
   <head>
     <Meta title={(isTopPage ? "" : `${pageTitle} - `) + siteTitle} description={description} />
+    <link rel="preload" as="image" href={heroImage.src} fetchpriority="high" type="image/webp" />
   </head>
   <body>
     <Nav class="nav" />

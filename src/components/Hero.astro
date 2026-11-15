@@ -5,12 +5,11 @@ const heroImage = await getImage({ src: heroImageSrc });
 const { class: className, ...props } = Astro.props;
 ---
 
-<link rel="preload" as="image" href={heroImage.src} fetchpriority="high" type="image/webp" />
 <header class:list={[className]} {...props}>
   <h1 class="slogan">
     地域に愛される<br />マーチングバンドを<br class="only-s" />目指して
   </h1>
-  <span class="scroll-arrow">SCROLL</span>
+  <span class="scroll-arrow" aria-hidden="true">SCROLL</span>
 </header>
 
 <style define:vars={{ heroImage: `url(${heroImage.src})` }}>
@@ -20,6 +19,7 @@ const { class: className, ...props } = Astro.props;
     background-size: cover;
     background-position: center center;
     color: rgb(var(--white-rgb));
+    container-type: inline-size;
 
     @media (width < 640px) {
       padding: 5rem 1.5rem;
@@ -38,15 +38,15 @@ const { class: className, ...props } = Astro.props;
 
   .slogan {
     @media (width < 640px) {
-      font-size: clamp(1.5rem, 0.5rem + 8vw, 3.5rem);
+      font-size: clamp(1.5rem, 0.25rem + 8vw, 3.25rem);
     }
 
     @media (640px <= width < 960px) {
-      font-size: clamp(1.75rem, 0.5rem + 4vw, 3.25rem);
+      font-size: clamp(1.75rem, 0.5rem + 4.2vw, 3.25rem);
     }
 
     @media (960px <= width) {
-      font-size: clamp(2.25rem, 0.75rem + 3.3vw, 4.5rem);
+      font-size: clamp(2rem, 0.5rem + 6cqi, 4.5rem);
     }
   }
 
