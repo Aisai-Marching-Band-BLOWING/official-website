@@ -4,13 +4,13 @@ import NavLink from "./NavLink.astro";
 
 <button
   type="button"
-  title="メニューを開く"
+  aria-label="メニューを開く"
   class="hamburger"
   id="hamburger"
   aria-controls="menu"
   aria-expanded="false"
 >
-  <span class="hamburger-status"></span>
+  <span class="hamburger-status" id="hamburger-status" aria-hidden="true">MENU</span>
 
   <div class="hamburger-lines">
     <span class="line"></span>
@@ -25,7 +25,7 @@ import NavLink from "./NavLink.astro";
     <li class="menu-list-item"><NavLink href="/news/">お知らせ</NavLink></li>
     <li class="menu-list-item"><NavLink href="/about/">概要</NavLink></li>
     <li class="menu-list-item"><NavLink href="/join/">メンバー募集</NavLink></li>
-    <il class="menu-list-item"><NavLink href="/contact/">お問い合わせ</NavLink></il>
+    <li class="menu-list-item"><NavLink href="/contact/">お問い合わせ</NavLink></li>
     <li class="menu-list-item"><NavLink href="/privacy/">当サイトについて</NavLink></li>
   </ul>
 </div>
@@ -46,7 +46,9 @@ import NavLink from "./NavLink.astro";
       place-items: center;
       height: var(--nav-height);
       width: var(--nav-height);
-      transition: all 0.4s;
+      transition:
+        background-color 0.4s,
+        color 0.4s;
       background-color: rgb(var(--brand-rgb));
       color: rgb(var(--white-rgb));
 
@@ -58,13 +60,6 @@ import NavLink from "./NavLink.astro";
 
     .hamburger-status {
       font-size: 10px;
-
-      &::before {
-        content: "MENU";
-      }
-      &:where(.nav-expanded &)::before {
-        content: "CLOSE";
-      }
     }
 
     .line {
@@ -72,7 +67,10 @@ import NavLink from "./NavLink.astro";
       height: 2px;
       width: 30px;
       margin: 5px 0;
-      transition: all 0.4s;
+      transition:
+        transform 0.4s,
+        opacity 0.4s,
+        background-color 0.4s;
       background-color: rgb(var(--white-rgb));
 
       &:where(.nav-expanded &) {
@@ -96,27 +94,24 @@ import NavLink from "./NavLink.astro";
       height: 100%;
       position: fixed;
       top: var(--nav-height);
-      left: 100%;
-      transition: all 0.5s;
+      right: 0;
+      translate: 100% 0;
+      transition: translate 0.5s;
       background-color: rgb(var(--shippo-bg-rgb));
       background-image: var(--shippo-pattern-img);
       background-size: var(--shippo-pattern-size);
       overflow: auto;
 
+      &:where(.nav-expanded &) {
+        translate: 0 0;
+      }
+
       @media (width < 640px) {
         width: 80%;
-
-        &:where(.nav-expanded &) {
-          left: 20%;
-        }
       }
 
       @media (640px <= width) {
         width: 50%;
-
-        &:where(.nav-expanded &) {
-          left: 50%;
-        }
       }
     }
 

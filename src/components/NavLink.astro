@@ -11,7 +11,9 @@ const isCurrent = href === pathname || href === `/${subpath?.[0]}`;
   a {
     display: block;
     font-weight: bold;
-    transition: all 0.4s;
+    transition:
+      border-color 0.4s,
+      background-color 0.4s;
     text-decoration: none;
     color: inherit;
 
@@ -38,7 +40,7 @@ const isCurrent = href === pathname || href === `/${subpath?.[0]}`;
       border-left: 8px solid rgba(var(--brand-rgb), 0);
 
       &:hover,
-      &:focus,
+      &:focus-visible,
       &[aria-current="page"] {
         border-left: 8px solid rgb(var(--brand-rgb));
         --shippo-bg-rgb: var(--gray3-rgb);
