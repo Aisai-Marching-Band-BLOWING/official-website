@@ -1,6 +1,17 @@
-@charset "utf-8";
+@layer reset, base;
 
 :root {
+  --color-brand: rgb(159 22 106);
+  --color-light-brand: rgb(248 201 230);
+  --color-sub-brand: rgb(68 154 174);
+  --color-red: rgb(224 54 22);
+  --color-black: rgb(51 51 51);
+  --color-link: var(--color-sub-brand);
+  --color-gray1: rgb(184 184 184);
+  --color-gray2: rgb(235 235 235);
+  --color-gray3: rgb(245 245 245);
+  --color-white: rgb(255 255 255);
+
   --brand-rgb: 159, 22, 106;
   --light-brand-rgb: 248, 201, 230;
   --sub-brand-rgb: 68, 154, 174;
@@ -15,39 +26,39 @@
   --shippo-radius: 40px;
   --shippo-width: 0.6px;
   --shippo-bg-rgb: var(--brand-rgb);
-  --shippo-circle-color: rgba(var(--white-rgb), 0.5);
+  --shippo-circle-color: color-mix(in srgb, var(--color-white) 50%, transparent);
   --shippo-pattern-img: radial-gradient(circle at top left,
-      rgba(var(--shippo-bg-rgb), 0) calc(var(--shippo-radius) - var(--shippo-width)),
+      transparent calc(var(--shippo-radius) - var(--shippo-width)),
       var(--shippo-circle-color) var(--shippo-radius),
-      rgba(var(--shippo-bg-rgb), 0) calc(var(--shippo-radius) + var(--shippo-width))),
+      transparent calc(var(--shippo-radius) + var(--shippo-width))),
     radial-gradient(circle at top right,
-      rgba(var(--shippo-bg-rgb), 0) calc(var(--shippo-radius) - var(--shippo-width)),
+      transparent calc(var(--shippo-radius) - var(--shippo-width)),
       var(--shippo-circle-color) var(--shippo-radius),
-      rgba(var(--shippo-bg-rgb), 0) calc(var(--shippo-radius) + var(--shippo-width))),
+      transparent calc(var(--shippo-radius) + var(--shippo-width))),
     radial-gradient(circle at bottom left,
-      rgba(var(--shippo-bg-rgb), 0) calc(var(--shippo-radius) - var(--shippo-width)),
+      transparent calc(var(--shippo-radius) - var(--shippo-width)),
       var(--shippo-circle-color) var(--shippo-radius),
-      rgba(var(--shippo-bg-rgb), 0) calc(var(--shippo-radius) + var(--shippo-width))),
+      transparent calc(var(--shippo-radius) + var(--shippo-width))),
     radial-gradient(circle at bottom right,
-      rgba(var(--shippo-bg-rgb), 0) calc(var(--shippo-radius) - var(--shippo-width)),
+      transparent calc(var(--shippo-radius) - var(--shippo-width)),
       var(--shippo-circle-color) var(--shippo-radius),
-      rgba(var(--shippo-bg-rgb), 0) calc(var(--shippo-radius) + var(--shippo-width))),
+      transparent calc(var(--shippo-radius) + var(--shippo-width))),
     radial-gradient(circle at 50% 150%,
-      rgba(var(--shippo-bg-rgb), 0) calc(var(--shippo-radius) - var(--shippo-width)),
+      transparent calc(var(--shippo-radius) - var(--shippo-width)),
       var(--shippo-circle-color) var(--shippo-radius),
-      rgba(var(--shippo-bg-rgb), 0) calc(var(--shippo-radius) + var(--shippo-width))),
+      transparent calc(var(--shippo-radius) + var(--shippo-width))),
     radial-gradient(circle at 50% -50%,
-      rgba(var(--shippo-bg-rgb), 0) calc(var(--shippo-radius) - var(--shippo-width)),
+      transparent calc(var(--shippo-radius) - var(--shippo-width)),
       var(--shippo-circle-color) var(--shippo-radius),
-      rgba(var(--shippo-bg-rgb), 0) calc(var(--shippo-radius) + var(--shippo-width))),
+      transparent calc(var(--shippo-radius) + var(--shippo-width))),
     radial-gradient(circle at 150% 50%,
-      rgba(var(--shippo-bg-rgb), 0) calc(var(--shippo-radius) - var(--shippo-width)),
+      transparent calc(var(--shippo-radius) - var(--shippo-width)),
       var(--shippo-circle-color) var(--shippo-radius),
-      rgba(var(--shippo-bg-rgb), 0) calc(var(--shippo-radius) + var(--shippo-width))),
+      transparent calc(var(--shippo-radius) + var(--shippo-width))),
     radial-gradient(circle at -50% 50%,
-      rgba(var(--shippo-bg-rgb), 0) calc(var(--shippo-radius) - var(--shippo-width)),
+      transparent calc(var(--shippo-radius) - var(--shippo-width)),
       var(--shippo-circle-color) var(--shippo-radius),
-      rgba(var(--shippo-bg-rgb), 0) calc(var(--shippo-radius) + var(--shippo-width)));
+      transparent calc(var(--shippo-radius) + var(--shippo-width)));
   --shippo-pattern-size: calc(var(--shippo-radius) * 1.732) var(--shippo-radius);
 
   @media (width < 640px) {
@@ -59,132 +70,144 @@
   }
 }
 
-/*全体*/
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+@layer reset {
+  :where(
+    html, body, main, header, footer, nav, section, article, aside, address,
+    div, p, h1, h2, h3, h4, h5, h6, ul, ol, li, dl, dt, dd,
+    table, th, td, a, button, input, textarea, select, img, iframe, details, summary
+  ) {
+    box-sizing: border-box;
+  }
 
-body {
-  color: rgb(var(--black-rgb));
-  background-color: rgb(var(--white-rgb));
-  font-family: "Noto Sans JP", sans-serif;
-}
-
-h1 {
-  font-size: calc(var(--ratio) * var(--ratio) * var(--ratio) * 1rem);
-}
-
-h2 {
-  font-size: calc(var(--ratio) * var(--ratio) * 1rem);
-}
-
-h3 {
-  font-size: calc(var(--ratio) * 1rem);
-}
-
-h3:not(:first-child),
-h4:not(:first-child),
-h5:not(:first-child) {
-  margin-top: calc(var(--ratio) * 1rem);
-}
-
-h4,
-h5 {
-  font-size: 1rem;
-}
-
-a {
-  color: rgb(var(--link-rgb));
-  text-decoration: underline;
-
-  &:hover {
-    text-decoration: none;
+  :where(
+    body, h1, h2, h3, h4, h5, h6, p, ul, ol, dl, dd,
+    figure, blockquote, th, td, button, input, textarea, select
+  ) {
+    margin: 0;
+    padding: 0;
   }
 }
 
-p {
-  line-height: 1.75;
-  margin-top: 1rem;
-}
+@layer base {
+  /*全体*/
+  body {
+    color: var(--color-black);
+    background-color: var(--color-white);
+    font-family: "Noto Sans JP", sans-serif;
+  }
 
-img {
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-}
+  h1 {
+    font-size: calc(var(--ratio) * var(--ratio) * var(--ratio) * 1rem);
+  }
 
-input,
-button,
-textarea,
-select {
-  background: none;
-  border: none;
-  border-radius: 0;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  font: inherit;
-  color: inherit;
-}
+  h2 {
+    font-size: calc(var(--ratio) * var(--ratio) * 1rem);
+  }
 
-input[type="text"],
-input[type="email"],
-textarea {
-  border: 1px solid rgb(var(--gray1-rgb));
-  padding: 1rem;
-  width: 100%;
-  box-sizing: border-box;
-}
+  h3 {
+    font-size: calc(var(--ratio) * 1rem);
+  }
 
-textarea {
-  resize: none;
-  height: 13rem;
-  line-height: 1.6;
-}
+  h3:not(:first-child),
+  h4:not(:first-child),
+  h5:not(:first-child) {
+    margin-top: calc(var(--ratio) * 1rem);
+  }
 
-button {
-  cursor: pointer;
-}
+  h4,
+  h5 {
+    font-size: 1rem;
+  }
 
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
+  a {
+    color: var(--color-link);
+    text-decoration: underline;
 
-th,
-td {
-  border: 1px solid rgb(var(--gray1-rgb));
+    &:hover {
+      text-decoration: none;
+    }
+  }
 
-  @media (width < 640px) {
+  p {
+    line-height: 1.75;
+    margin-top: 1rem;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  input,
+  button,
+  textarea,
+  select {
+    background: none;
+    border: none;
+    border-radius: 0;
+    appearance: none;
+    font: inherit;
+    color: inherit;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    border: 1px solid var(--color-gray1);
     padding: 1rem;
+    width: 100%;
+    box-sizing: border-box;
   }
 
-  @media (640px <=width) {
-    padding: 1.5rem;
+  textarea {
+    resize: none;
+    height: 13rem;
+    line-height: 1.6;
   }
-}
 
-section,
-address {
+  button {
+    cursor: pointer;
+  }
+
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+
+  th,
+  td {
+    border: 1px solid var(--color-gray1);
+
+    @media (width < 640px) {
+      padding: 1rem;
+    }
+
+    @media (640px <=width) {
+      padding: 1.5rem;
+    }
+  }
+
+  section,
+  address {
+    @media (width < 640px) {
+      padding: 3.5rem 1.5rem;
+    }
+
+    @media (640px <=width) {
+      padding: 4rem 10%;
+    }
+  }
+
   @media (width < 640px) {
-    padding: 3.5rem 1.5rem;
+    .only-l {
+      display: none;
+    }
   }
 
   @media (640px <=width) {
-    padding: 4rem 10%;
-  }
-}
-
-@media (width < 640px) {
-  .only-l {
-    display: none;
-  }
-}
-
-@media (640px <=width) {
-  .only-s {
-    display: none;
+    .only-s {
+      display: none;
+    }
   }
 }
